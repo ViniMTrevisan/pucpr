@@ -1,0 +1,219 @@
+
+---- DIA 07/05
+---- LEFT E INNER JOIN tem geralmente o mesmo efeito
+---- o que vai em SELECT, vai em GROUP BY
+
+SELECT tb_curso.curso_nome, COUNT(*) as numeros_alunos
+FROM tb_curso_aluno 
+INNER JOIN tb_curso ON tb_curso.curso_id = ca_id_curso
+GROUP BY tb_curso.curso_nome
+
+---- DIA 08/05
+---- chave estrangeira (tal) referencia a primary key de (tal) tabela. O 1 () sera igual ao 2 ()
+
+CREATE DATABASE puc;
+USE puc;
+
+CREATE TABLE tb_aluno(
+    aluno_id INT primary key auto_increment,
+    aluno_nome VARCHAR(50)
+);
+
+CREATE TABLE tb_curso(
+    curso_id INT PRIMARY KEY auto_increment,
+    curso_nome VARCHAR(50)
+);
+
+CREATE TABLE tb_disciplina(
+    disc_id INT PRIMARY KEY auto_increment,
+    disc_nome VARCHAR(50)
+);
+
+CREATE TABLE tb_curso_aluno(
+    ca_id INT PRIMARY KEY auto_increment,
+    ca_id_aluno INT,
+    ca_id_curso iNT,
+    ca_data_matricula DATE,
+    ca_data_colacao DATE,
+    ca_data_abandono DATE,
+    FOREIGN KEY (ca_id_aluno) REFERENCES tb_aluno (aluno_id),
+    FOREIGN KEY (ca_id_curso) REFERENCES tb_curso (curso_id)
+);
+
+CREATE TABLE tb_matricula(
+	mat_id INT PRIMARY KEY AUTO_INCREMENT,
+    mat_id_ca INT,
+    mat_id_disc INT,
+    mat_data_matricula DATE,
+    mat_nota FLOAT,
+    mat_data_trancamento DATE,
+    mat_situacao ENUM('APV', 'REP'),
+    FOREIGN KEY (mat_id_ca) REFERENCES tb_curso_aluno (ca_id),
+    FOREIGN KEY (mat_id_disc) REFERENCES tb_disciplina (disc_id)
+);
+
+INSERT INTO tb_aluno (aluno_nome) VALUES ('Aluno 1');
+INSERT INTO tb_aluno (aluno_nome) VALUES ('Aluno 2');
+INSERT INTO tb_aluno (aluno_nome) VALUES ('Aluno 3');
+
+INSERT INTO tb_curso (curso_nome) VALUES ('Curso 1');
+INSERT INTO tb_curso (curso_nome) VALUES ('Curso 2');
+INSERT INTO tb_curso (curso_nome) VALUES ('Curso 3');
+
+INSERT INTO tb_disciplina (disc_nome) VALUES ('Disciplina 1');
+INSERT INTO tb_disciplina (disc_nome) VALUES ('Disciplina 2');
+INSERT INTO tb_disciplina (disc_nome) VALUES ('Disciplina 3');
+
+SELECT * FROM tb_aluno;
+-- id 1 - aluno 1;
+-- id 2 - aluno 2;
+-- id 3 - aluno 3;
+
+SELECT * FROM tb_curso
+-- tb curso
+-- id 1 - curso 1;
+-- id 2 - curso 2;
+-- id 3 - curso 3;
+
+INSERT INTO tb_curso_aluno(ca_id_aluno, ca_id_curso, ca_data_matricula) VALUES (1,1,'2025-08-05');
+INSERT INTO tb_curso_aluno(ca_id_aluno, ca_id_curso, ca_data_matricula) VALUES (2,2,'2025-08-05');
+INSERT INTO tb_curso_aluno(ca_id_aluno, ca_id_curso, ca_data_matricula) VALUES (3,3,'2025-08-05');
+
+SELECT * FROM tb_curso_aluno;
+-- tb curso_aluno
+-- id 1 - aluno 1 / curso 1;
+-- id 2 - aluno 2 / curso 2;
+-- id 3 - aluno 3 / curso 3;
+
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (1,1,'2025-05-08');
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (1,2,'2025-05-08');
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (1,3,'2025-05-08');
+
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (2,1,'2025-05-08');
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (2,2,'2025-05-08');
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (2,3,'2025-05-08');
+
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (3,1,'2025-05-08');
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (3,2,'2025-05-08');
+INSERT INTO tb_matricula (mat_id_ca, mat_id_disc, mat_data_matricula) VALUES (3,3,'2025-05-08');
+
+SELECT * FROM tb_aluno;
+SELECT * FROM tb_curso;
+SELECT * FROM tb_curso_aluno;
+SELECT * FROM tb_disciplina;
+SELECT * FROM tb_matricula
+
+SELECT * 
+FROM tb_curso_aluno 
+LEFT JOIN tb_aluno ON aluno_id = ca_id_aluno
+LEFT JOIN tb_curso ON curso_id = ca_id_curso;
+
+SELECT ca_id, aluno_id, curso_id, aluno_nome, curso_nome, -- DEIXOU A TABELA COM SO OQ EU QUERO
+ca_data_matricula, ca_data_colacao, ca_data_abandono
+FROM tb_curso_aluno 
+LEFT JOIN tb_aluno ON aluno_id = ca_id_aluno
+LEFT JOIN tb_curso ON curso_id = ca_id_curso;
+
+-- O DE CIMA SE TORNOU ISSO
+
+CREATE VIEW vw_matricula_curso -- serve para nao deixar um select gigantesco
+AS 
+SELECT ca_id, aluno_id, curso_id, aluno_nome, curso_nome, 
+ca_data_matricula, ca_data_colacao, ca_data_abandono
+FROM tb_curso_aluno 
+LEFT JOIN tb_aluno ON aluno_id = ca_id_aluno
+LEFT JOIN tb_curso ON curso_id = ca_id_curso;
+
+SELECT * FROM tb_matricula;
+
+SELECT curso_nome, 
+aluno_nome, 
+disc_nome, 
+mat_nota,
+mat_situacao,
+mat_data_matricula,
+mat_data_trancamento
+FROM tb_matricula
+LEFT JOIN tb_curso_aluno ON ca_id = mat_id_ca
+LEFT JOIN tb_disciplina ON disc_id = mat_id_disc
+LEFT JOIN tb_aluno ON aluno_id = ca_id_aluno
+LEFT JOIN tb_curso ON curso_id = ca_id_curso
+
+CREATE VIEW vw_historico_realizado
+AS
+SELECT 
+mat_id, ca_id, aluno_id, curso_id, disc_id,
+curso_nome, aluno_nome, disc_nome, 
+mat_nota, mat_situacao, mat_data_matricula, mat_data_trancamento
+FROM tb_matricula
+LEFT JOIN tb_curso_aluno ON ca_id = mat_id_ca
+LEFT JOIN tb_disciplina ON disc_id = mat_id_disc
+LEFT JOIN tb_aluno ON aluno_id = ca_id_aluno
+LEFT JOIN tb_curso ON curso_id = ca_id_curso
+
+SELECT * FROM vw_historico_realizado;
+
+SELECT aluno_nome, COUNT(mat_id) AS num_disciplinas
+FROM vw_historico_realizado
+GROUP BY aluno_nome;
+
+SELECT curso_nome, COUNT(mat_id) AS num_disciplinas
+FROM vw_historico_realizado
+GROUP BY aluno_nome;
+
+SELECT * FROM vw_matricula_curso;
+
+SELECT curso_nome, COUNT(aluno_id) AS num_alunos_matriculados 
+FROM vw_matricula_curso
+GROUP BY (curso_nome);
+
+--- dia 14/05
+--- usar x.y para passar nota em float 
+--- operador media dentro de um UPDATE
+--- para calcular a media de notas em tabelas separadas: primeiro, alterarei a tabela que quero inserir a nova nota, calcula a nota sendo = a soma das notas / numero das notas
+--- clausula IN, LIKE - o IN verifica se existe aquele elemento em uma lista
+
+SELECT * FROM vw_historico_realizado
+
+CREATE TABLE tb_boletim(
+	boletim_id INT PRIMARY KEY AUTO_INCREMENT,
+    boletim_id_matricula INT,
+    boletim_nota1 FLOAT,
+    boletim_nota2 FLOAT,
+    boletim_nota3 FLOAT,
+    FOREIGN KEY (boletim_id_matricula) REFERENCES tb_matricula (mat_id)
+);
+
+SELECT * FROM tb_matricula;
+
+INSERT INTO tb_boletim (boletim_id_matricula, boletim_nota1, boletim_nota2, boletim_nota3) VALUES 
+(1, 9.5, 8.2, 6.1)
+
+SELECT mat_id, mat_nota, 
+boletim_nota1, boletim_nota2, boletim_nota3
+FROM tb_matricula
+INNER JOIN tb_boletim ON tb_boletim.boletim_id_matricula = tb_matricula.mat_id; -- se eu usar LEFT JOIN, ele trará todas as matriculas, diferente do inner join, que so tras as que existem
+
+SELECT * FROM vw_historico_realizado;
+
+SELECT curso_nome, aluno_nome, disc_nome, vw.mat_nota, 
+boletim_nota1, boletim_nota2, boletim_nota3
+FROM tb_matricula
+INNER JOIN tb_boletim ON tb_boletim.boletim_id_matricula = 
+tb_matricula.mat_id
+LEFT JOIN vw_historico_realizado vw ON vw.mat_id = tb_matricula.mat_id;
+-- vw apos o vw_historico_realizado é uma apelido, para criar o nome de uma tabela diferente e nao deixar o codigo ambiguo. 
+
+UPDATE tb_matricula
+SET mat_nota = 
+(SELECT (boletim_nota1+boletim_nota2+boletim_nota3)/3 FROM tb_boletim WHERE tb_boletim.boletim_id_matricula = tb_matricula.mat_id)
+WHERE mat_id IN 
+(SELECT tb_boletim.boletim_id_matricula FROM tb_boletim) -- retorna todos os mat_ids da tabela boletim
+AND tb_matricula.mat_nota IS NULL;
+
+INSERT INTO tb_boletim(boletim_id_matricula, boletim_nota1, boletim_nota2, boletim_nota3) 
+VALUES 
+(2,5,6,7) -- fizemos isso para os 9 indices da tabela depois disso, rodamos o UPDATE tb_matricula acima
+
+
+

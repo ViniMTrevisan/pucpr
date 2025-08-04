@@ -1,0 +1,99 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ollama Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-300 hover:scale-105">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8 tracking-tight">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Ollama Chat</span>
+    </h1>
+    
+    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+      <input 
+        type="text" 
+        id="pergunta" 
+        placeholder="Digite sua pergunta aqui..." 
+        class="flex-grow p-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 shadow-sm"
+      >
+      <button 
+        onclick="enviarPergunta()" 
+        class="px-6 py-3 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95"
+      >
+        Perguntar
+      </button>
+    </div>
+    
+    <h3 class="text-2xl font-bold text-gray-700 mb-4">Resposta:</h3>
+    <div 
+      id="resposta" 
+      class="min-h-[100px] bg-gray-50 p-5 rounded-lg border border-gray-200 text-gray-800 leading-relaxed shadow-inner overflow-auto max-h-96"
+    >
+      Sua resposta aparecerá aqui.
+    </div>
+  </div>
+
+  <script>
+    // This script handles the communication with your Flask backend.
+    // Ensure your Flask server is running at http://127.0.0.1:5000
+    function enviarPergunta() {
+      const pergunta = document.getElementById('pergunta').value;
+      const respostaElem = document.getElementById('resposta');
+      
+      // Basic input validation
+      if (!pergunta.trim()) {
+        respostaElem.textContent = "Por favor, digite uma pergunta antes de enviar.";
+        respostaElem.classList.remove('bg-gray-50', 'text-gray-800');
+        respostaElem.classList.add('bg-red-100', 'text-red-700'); // Highlight error
+        return;
+      }
+
+      respostaElem.textContent = "Carregando resposta...";
+      respostaElem.classList.remove('bg-red-100', 'text-red-700'); // Reset error styling
+      respostaElem.classList.add('bg-blue-50', 'text-blue-700'); // Indicate loading
+
+      fetch('http://127.0.0.1:5000/api/perguntar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pergunta: pergunta })
+      })
+      .then(response => {
+        if (!response.ok) {
+          // Handle HTTP errors
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.resposta) {
+          respostaElem.textContent = data.resposta;
+          respostaElem.classList.remove('bg-blue-50', 'text-blue-700'); // Remove loading styling
+          respostaElem.classList.add('bg-gray-50', 'text-gray-800'); // Back to normal
+        } else if (data.erro) {
+          respostaElem.textContent = `Erro: ${data.erro}`;
+          respostaElem.classList.remove('bg-blue-50', 'text-blue-700');
+          respostaElem.classList.add('bg-red-100', 'text-red-700'); // Highlight error
+        } else {
+          respostaElem.textContent = 'Sem resposta clara da API.';
+          respostaElem.classList.remove('bg-blue-50', 'text-blue-700');
+          respostaElem.classList.add('bg-orange-100', 'text-orange-700'); // Indicate warning
+        }
+      })
+      .catch(error => {
+        respostaElem.textContent = `Erro ao se comunicar com a API: ${error.message}. Verifique se o servidor Flask está rodando.`;
+        respostaElem.classList.remove('bg-blue-50', 'text-blue-700');
+        respostaElem.classList.add('bg-red-100', 'text-red-700'); // Highlight error
+        console.error('Erro na requisição:', error);
+      });
+    }
+  </script>
+</body>
+</html>

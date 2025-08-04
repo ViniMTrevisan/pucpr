@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            width: 260px;
+            background: #d3d3d3;
+            padding: 10px;
+            border-radius: 10px;
+            border: 5px solid grey;
+            text-align: center;
+        }
+        .display {
+            width: calc(100% - 20px);
+            height: 50px;
+            font-size: 36px;
+            text-align: right;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            background: white;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        button {
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .number { background: purple; color: white; }
+        .operator { background: yellow; }
+        .clear { background: red; color: white; }
+        button:hover { filter: brightness(85%); }
+        
+        /* Estilos para a nova calculadora */
+        .new-calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .input-box {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .operator-btn {
+            width: 37px;
+            height: 37px;
+            font-size: 20px;
+            background: orange;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+        .result-box {
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+            background: #eee;
+            border: 1px solid #ccc;
+        }
+        .clear-btn {
+            width: 60px;
+            height: 30px;
+            background: #ff8000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Calculadora Tradicional -->
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button class="number" onclick="addToDisplay('7')">7</button>
+            <button class="number" onclick="addToDisplay('8')">8</button>
+            <button class="number" onclick="addToDisplay('9')">9</button>
+            <button class="operator" onclick="addToDisplay('/')">/</button>
+            <button class="number" onclick="addToDisplay('4')">4</button>
+            <button class="number" onclick="addToDisplay('5')">5</button>
+            <button class="number" onclick="addToDisplay('6')">6</button>
+            <button class="operator" onclick="addToDisplay('*')">*</button>
+            <button class="number" onclick="addToDisplay('1')">1</button>
+            <button class="number" onclick="addToDisplay('2')">2</button>
+            <button class="number" onclick="addToDisplay('3')">3</button>
+            <button class="operator" onclick="addToDisplay('-')">-</button>
+            <button class="number" onclick="addToDisplay('0')">0</button>
+            <button class="clear" onclick="clearDisplay()">CA</button>
+            <button class="operator" onclick="calculate()">=</button>
+            <button class="operator" onclick="addToDisplay('+')">+</button>
+        </div>
+    </div>
+
+    <!-- Nova Calculadora -->
+    <div class="new-calculator">
+        <div class="row">
+            <input type="number" class="input-box">
+            <button class="operator-btn">+</button>
+            <input type="number" class="input-box">
+            <button class="equal-btn" onclick="operate(this)">=</button>
+            <input type="text" class="result-box" disabled>
+            <button class="clear-btn" onclick="clearRow(this)">Limpar</button>
+        </div>
+        <div class="row">
+            <input type="number" class="input-box">
+            <button class="operator-btn">-</button>
+            <input type="number" class="input-box">
+            <button class="equal-btn" onclick="operate(this)">=</button>
+            <input type="text" class="result-box" disabled>
+            <button class="clear-btn" onclick="clearRow(this)">Limpar</button>
+        </div>
+        <div class="row">
+            <input type="number" class="input-box">
+            <button class="operator-btn">×</button>
+            <input type="number" class="input-box">
+            <button class="equal-btn" onclick="operate(this)">=</button>
+            <input type="text" class="result-box" disabled>
+            <button class="clear-btn" onclick="clearRow(this)">Limpar</button>
+        </div>
+        <div class="row">
+            <input type="number" class="input-box">
+            <button class="operator-btn">÷</button>
+            <input type="number" class="input-box">
+            <button class="equal-btn" onclick="operate(this)">=</button>
+            <input type="text" class="result-box" disabled>
+            <button class="clear-btn" onclick="clearRow(this)">Limpar</button>
+        </div>
+    </div>
+
+    <script>
+        function operate(button) {
+            let row = button.parentNode;
+            let num1 = parseFloat(row.children[0].value) || 0;
+            let num2 = parseFloat(row.children[2].value) || 0;
+            let operator = row.children[1].innerText;
+            let resultBox = row.children[4];
+            let result;
+            switch(operator) {
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '×': result = num1 * num2; break;
+                case '÷': result = num2 !== 0 ? num1 / num2 : 'Erro'; break;
+            }
+            resultBox.value = result;
+        }
+        function clearRow(button) {
+            let row = button.parentNode;
+            row.children[0].value = '';
+            row.children[2].value = '';
+            row.children[4].value = '';
+        }
+    </script>
+</body>
+</html>
+

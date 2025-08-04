@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Info - Estruturado</title>
+</head>
+<body>
+    <h1>Ask about a Country (Structured)</h1>
+    
+    <input type="text" id="question" placeholder="Type your question...">
+    <button onclick="askCountry()">Send</button>
+
+    <div id="response"></div>
+
+    <script>
+        function askCountry() {
+            const message = document.getElementById("question").value;
+
+            fetch('/ask_alt', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById("response").innerHTML = `<p style="color:red;">${data.error}</p>`;
+                } else {
+                    const template = `
+                        <h2>Structured Response:</h2>
+                        <p><strong>Country:</strong> ${data.country_name}</p>
+                        <p><strong>Main City:</strong> ${data.main_city}</p>
+                        <p><strong>Languages:</strong> ${data.spoken_languages.join(", ")}</p>
+                    `;
+                    document.getElementById("response").innerHTML = template;
+                }
+            })
+            .catch(err => {
+                document.getElementById("response").innerHTML = `<p style="color:red;">Error: ${err}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>

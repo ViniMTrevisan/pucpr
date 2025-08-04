@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <script>
+        function comparar() {
+            let v1 = parseInt(document.getElementById("i1").value);
+            let v2 = parseInt(document.getElementById("i2").value);
+        
+            if (v1 > v2) {
+                window.alert("V1 é maior");
+                return;
+            }
+            else if (v2> v1){
+                window.alert("V2 é maior");
+                return;
+            }
+            else if (v1 === v2){
+                window.alert("V1 e V2 sao iguais");
+                return;
+            }
+            window.alert("Erro");
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="i1"><br>
+    <input type="number" id="i2"><br>
+    <button onclick="comparar()">comparar</button>
+</body>
+</html>

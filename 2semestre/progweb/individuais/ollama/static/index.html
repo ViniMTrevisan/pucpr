@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ollama Chat</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <h1>Ollama</h1>
+
+  <h2>Sobre Países</h2>
+  <input type="text" id="country-input" placeholder="Pergunte sobre um país" />
+  <button onclick="askCountry()">Enviar</button>
+  <pre id="country-response"></pre>
+
+  <h2>Sobre Cientistas</h2>
+  <input type="text" id="scientist-input" placeholder="Pergunte sobre um cientista" />
+  <button onclick="askScientist()">Enviar</button>
+  <pre id="scientist-response"></pre>
+
+  <script>
+    function askCountry() {
+      const message = document.getElementById("country-input").value;
+      fetch("/ask", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message})
+      })
+      .then(r => r.json())
+      .then(data => {
+        const template = `Nome: ${data.name}
+Capital: ${data.capital}
+Idiomas: ${data.languages.join(", ")}`;
+        document.getElementById("country-response").textContent = template;
+      });
+    }
+
+    function askScientist() {
+      const message = document.getElementById("scientist-input").value;
+      fetch("/ask_scientist", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message})
+      })
+      .then(r => r.json())
+      .then(data => {
+        const template = `Nome: ${data.name}
+Área: ${data.field}
+Trabalho Notável: ${data.notable_work}`;
+        document.getElementById("scientist-response").textContent = template;
+      });
+    }
+  </script>
+</body>
+</html>

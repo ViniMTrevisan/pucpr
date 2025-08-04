@@ -1,0 +1,241 @@
+CREATE DATABASE db_clinica;
+USE db_clinica;
+
+CREATE TABLE tb_clinica(
+    clinica_id INT PRIMARY KEY AUTO_INCREMENT,
+    clinica_nome VARCHAR(50),
+    clinica_end VARCHAR(100),
+    clinica_site VARCHAR(100),
+    clinica_fone VARCHAR(20)
+);
+
+CREATE TABLE tb_med_vet(
+    med_id INT PRIMARY KEY AUTO_INCREMENT,
+    med_nome VARCHAR(50),
+    med_crmv VARCHAR(20),
+    med_cel VARCHAR(20)
+);
+
+CREATE TABLE tb_mv_clinica(
+    mv_clinica_id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_med_id INT,
+    fk_clinica_id INT,
+    FOREIGN KEY (fk_med_id) REFERENCES tb_med_vet(med_id),
+    FOREIGN KEY (fk_clinica_id) REFERENCES tb_clinica(clinica_id)
+);
+
+CREATE TABLE tb_paciente(
+    pac_id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_clinica_id INT,
+    pac_nome VARCHAR(50),
+    pac_cel VARCHAR(20),
+    pac_email VARCHAR(100),
+    pac_raca VARCHAR(50),
+    pac_tutor VARCHAR(50),
+    FOREIGN KEY (fk_clinica_id) REFERENCES tb_clinica(clinica_id)
+);
+
+CREATE TABLE tb_responsavel(
+    resp_id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_clinica_id INT,
+    resp_nome VARCHAR(50),
+    resp_email VARCHAR(100),
+    resp_cel VARCHAR(20),
+    resp_crmv VARCHAR(20)
+);
+
+CREATE TABLE tb_consulta(
+    consulta_id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_clinica_id INT,
+    fk_consulta_mv INT,
+    fk_consulta_pac INT,
+    consulta_data DATE,
+    consulta_desc VARCHAR(255),
+    consulta_hora TIME,
+    FOREIGN KEY (fk_clinica_id) REFERENCES tb_clinica(clinica_id),
+    FOREIGN KEY (fk_consulta_mv) REFERENCES tb_med_vet(med_id),
+    FOREIGN KEY (fk_consulta_pac) REFERENCES tb_paciente(pac_id)
+);
+
+INSERT INTO tb_clinica (clinica_nome, clinica_end, clinica_site, clinica_fone) 
+VALUES 
+('Clinica 1', 'Rua clinica1', 'siteclinica1.com', '(41) 96435-4355'),
+('Clinica 2', 'Rua clinica2', 'siteclinica2.com', '(41) 95437-8792'),
+('Clinica 3', 'Rua clinica3', 'siteclinica3.com', '(41) 94312-9824'),
+('Clinica 4', 'Rua clinica4', 'siteclinica4.com', '(41) 92356-4252'),
+('Clinica 5', 'Rua clinica5', 'siteclinica5.com', '(41) 92355-3254'),
+('Clinica 6', 'Rua clinica6', 'siteclinica6.com', '(41) 93124-1398'),
+('Clinica 7', 'Rua clinica7', 'siteclinica7.com', '(41) 98214-9123');
+
+INSERT INTO tb_med_vet (med_nome, med_cel, med_crmv)
+VALUES 
+('Dr. Veterinário 1', '(41) 92734-7235', 'CMRV-PR 62734'),
+('Dr. Veterinario 2', '(41) 97623-7283', 'CMRV-PR 81794'),
+('Dr. Veterinario 3', '(41) 91425-6324', 'CMRV-PR 77591'),
+('Dr. Veterinário 4', '(41) 92355-3466', 'CMRV-PR 23567'),
+('Dr. Veterinário 5', '(41) 99234-9234', 'CMRV-PR 92367'),
+('Dr. Veterinário 6', '(41) 92835-2345', 'CMRV-PR 73266'),
+('Dr. Veterinário 7', '(41) 93257-9235', 'CMRV-PR 89243');
+
+INSERT INTO tb_paciente (fk_clinica_id, pac_nome, pac_cel, pac_email, pac_raca, pac_tutor) 
+VALUES
+(1, 'Paciente 1', '(41) 93872-3274', 'Paciente1@email.com', 'Pitbull', 'Tutor1'),
+(2, 'Paciente 2', '(41) 91445-1246', 'Paciente2@email.com', 'Pinscher', 'Tutor2'),
+(3, 'Paciente 3', '(41) 93145-6543', 'Paciente3@email.com', 'Dog Alemão', 'Tutor3'),
+(4, 'Paciente 4', '(41) 93872-3274', 'Paciente4@email.com', 'Shitzu', 'Tutor4'),
+(5, 'Paciente 5', '(41) 91445-1246', 'Paciente5@email.com', 'Vira-lata', 'Tutor5'),
+(6, 'Paciente 6', '(41) 93145-6543', 'Paciente6@email.com', 'Buldogue', 'Tutor6'),
+(7, 'Paciente 7', '(41) 98367-2356', 'Paciente7@email.com', 'Husky', 'Tutor7');
+
+INSERT INTO tb_responsavel(fk_clinica_id, resp_nome, resp_email, resp_cel, resp_crmv)
+VALUES
+(1, 'Responsavel1', 'Responsavel1@email.com', '(41) 92148-2142', ' CRMV-PR 72145'),
+(2, 'Responsavel2', 'Responsavel2@email.com', '(41) 99873-1236', ' CRMV-PR 62355'),
+(3, 'Responsavel3', 'Responsavel3@email.com', '(41) 93532-7435', ' CRMV-PR 93245'),
+(4, 'Responsavel4', 'Responsavel4@email.com', '(41) 99382-3264', ' CRMV-PR 89254'),
+(5, 'Responsavel5', 'Responsavel5@email.com', '(41) 98234-9834', ' CRMV-PR 23058'),
+(6, 'Responsavel6', 'Responsavel6@email.com', '(41) 90234-4328', ' CRMV-PR 01356'),
+(7, 'Responsavel7', 'Responsavel7@email.com', '(41) 93895-9438', ' CRMV-PR 92875');
+
+
+INSERT INTO tb_consulta(fk_clinica_id, fk_consulta_mv, fk_consulta_pac, consulta_data, consulta_desc, consulta_hora)
+VALUES
+(1, 1, 1, '2025-05-15', 'Consulta de acompanhamento', '10:00:00'),
+(2, 2, 2, '2025-05-10', 'Check-Up anual', '15:00:00'),
+(3, 3, 3, '2025-07-18', 'Consulta de emergência', '08:00:00'),
+(4, 4, 4, '2025-08-12', 'Consulta de acompanhamento', '11:00:00'),
+(5, 5, 5, '2025-01-08', 'Check-Up semestral', '13:00:00'),
+(6, 6, 6, '2025-09-25', 'Consulta de emergência', '02:00:00'),
+(7, 7, 7, '2025-03-12', 'Consulta de acompanhamento', '10:00:00');
+
+INSERT INTO tb_mv_clinica(fk_med_id, fk_clinica_id)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7);
+
+
+SELECT * FROM tb_clinica;
+SELECT * FROM tb_med_vet;
+SELECT * FROM tb_paciente;
+SELECT * FROM tb_responsavel;
+SELECT * FROM tb_consulta;
+
+
+CREATE VIEW vw_lista_pacientes
+AS 
+SELECT clinica_id, pac_id,
+pac_nome, pac_raca,
+clinica_nome
+FROM tb_paciente
+LEFT JOIN tb_clinica ON fk_clinica_id = clinica_id;
+
+CREATE VIEW vw_lista_consultas
+AS
+SELECT clinica_id, consulta_id, 
+consulta_data, consulta_desc, consulta_hora,
+clinica_nome
+FROM tb_consulta
+LEFT JOIN tb_clinica on fk_clinica_id = clinica_id;
+
+CREATE VIEW vw_med_por_clinica
+AS
+SELECT clinica_id, 
+clinica_nome,
+COUNT(tb_mv_clinica.fk_med_id) AS qnt_med
+FROM tb_clinica
+LEFT JOIN tb_mv_clinica ON tb_clinica.clinica_id = tb_mv_clinica.fk_clinica_id
+GROUP BY clinica_id, clinica_nome;
+
+CREATE VIEW vw_pac_med_clinica
+AS
+SELECT clinica_id, med_id, pac_id,
+clinica_nome, med_nome, pac_nome,
+COUNT(tb_paciente.pac_id) AS qnt_pac
+FROM tb_clinica
+LEFT JOIN tb_mv_clinica ON tb_clinica.clinica_id = tb_mv_clinica.fk_clinica_id
+LEFT JOIN tb_med_vet ON tb_mv_clinica.fk_med_id = tb_med_vet.med_id
+LEFT JOIN tb_paciente ON tb_clinica.clinica_id = tb_paciente.fk_clinica_id
+GROUP BY clinica_id, clinica_nome, med_id, med_nome, pac_id, pac_nome;
+
+CREATE VIEW vw_qnt_consultas_mes
+AS
+SELECT clinica_id, med_id, 
+clinica_nome, med_nome,
+COUNT(tb_consulta.consulta_id) AS qnt_consultas,
+MONTH(tb_consulta.consulta_data) AS mes_consultas
+FROM tb_clinica
+LEFT JOIN tb_consulta ON tb_consulta.consulta_id = tb_clinica.clinica_id
+LEFT JOIN tb_med_vet  ON tb_med_vet.med_id = tb_consulta.fk_consulta_mv
+GROUP BY clinica_id, med_id, clinica_nome, med_nome, MONTH(tb_consulta.consulta_data);
+
+CREATE VIEW vw_qnt_consulta_cliente
+AS
+SELECT consulta_id, pac_id, med_id,
+pac_nome, med_nome,
+COUNT(tb_consulta.fk_consulta_pac) AS qnt_consulta
+FROM tb_consulta
+LEFT JOIN tb_paciente ON tb_consulta.fk_consulta_pac = tb_paciente.pac_id
+LEFT JOIN tb_med_vet ON tb_consulta.fk_consulta_mv = tb_med_vet.med_id
+GROUP BY consulta_id, pac_id, pac_nome, med_id, med_nome;
+
+UPDATE tb_paciente
+SET pac_tutor = 'tutor_novo01'
+WHERE pac_id = 1;
+
+UPDATE tb_paciente
+SET pac_email = 'novoemail@email.com'
+WHERE pac_id = 3;
+
+UPDATE tb_paciente
+SET pac_nome = 'Juju'
+WHERE pac_id = 2;
+
+UPDATE tb_med_vet
+SET med_nome = 'Vinicius Trevisan'
+WHERE med_id = 1;
+
+UPDATE tb_med_vet
+SET med_nome = 'Ana Julia Gunha'
+WHERE med_id = 3;
+
+UPDATE tb_consulta
+SET consulta_data = '2029-02-08'
+WHERE consulta_id = 2;
+
+UPDATE tb_consulta
+SET consulta_hora = '09:30:00'
+WHERE consulta_id = 2;
+
+UPDATE tb_consulta
+SET consulta_data = '2000-07-15'
+WHERE consulta_id = 3;
+
+UPDATE tb_med_vet
+SET med_nome = 'Viviane Trevisan'
+WHERE med_id = 5;
+
+UPDATE tb_med_vet 
+SET med_nome = 'Marcos Trevisan'
+WHERE med_id = 6;
+
+UPDATE tb_paciente
+SET pac_nome = 'Lindinha'
+WHERE pac_id = 6;
+
+UPDATE tb_paciente
+SET pac_nome = 'Boris'
+WHERE pac_id = 7;
+
+UPDATE tb_paciente
+SET pac_tutor = 'Guilherme Reis'
+WHERE pac_id = 6;
+
+UPDATE tb_clinica
+SET clinica_nome = 'Clinica do Trevisan'
+WHERE clinica_id = 3;
+

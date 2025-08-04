@@ -1,0 +1,100 @@
+DELIMITER $$
+
+CREATE PROCEDURE sp_inserir_mensagem(
+    IN p_voluntario_id INT,
+    IN p_ong_id INT,
+    IN p_mensagem_conteudo TEXT
+)
+BEGIN 
+    DECLARE mensagem_id INT DEFAULT NULL;
+
+    START TRANSACTION;
+
+    IF p_voluntario_id IS NOT NULL AND p_ong_id IS NOT NULL AND p_mensagem_conteudo IS NOT NULL THEN
+        INSERT INTO tb_mensagem (
+            fk_voluntario_id,
+            fk_ong_id,
+            mensagem_conteudo,
+            mensagem_data_envio
+        )
+        VALUES (
+            p_voluntario_id,
+            p_ong_id,
+            p_mensagem_conteudo,
+            NOW()
+        );
+        SET mensagem_id := (SELECT LAST_INSERT_ID());
+
+        INSERT INTO tb_notificacao (
+            fk_voluntario_id,
+            notificacao_msg,
+            notificacao_data
+        )
+        VALUES (
+            p_voluntario_id,
+            CONCAT('Nova mensagem enviada: ', p_mensagem_conteudo),
+            NOW()
+        );
+    END IF;
+
+    COMMIT;
+
+    SELECT mensagem_id;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_atualizar_notificacao(
+    IN p_notificacao_id INT,
+    IN p_notificacao_msg TEXT
+)
+BEGIN 
+    IF p_notificacao_id IS NOT NULL AND p_notificacao_msg IS NOT NULL THEN
+        UPDATE tb_notificacao
+        SET 
+            notificacao_msg = p_notificacao_msg,
+            notificacao_data = NOW()
+        WHERE
+            notificacao_id = p_notificacao_id;
+    END IF;
+
+    SELECT p_notificacao_id AS notificacao_id;
+END $$
+
+DELIMITER ;
+
+START TRANSACTION;
+
+SET @ong_id = 1;
+SET @curadoria_nome = 'Curadoria de Voluntários';
+SET @curadoria_requisitos = 'Experiência em gestão de equipes';
+SET @voluntario_id = 1;
+SET @status_aprovacao = 'Pendente';
+SET @curadoria_id = NULL;
+
+INSERT INTO tb_curadoria (
+    curadoria_nome,
+    curadoria_requisitos_minimos,
+    fk_ong_id
+)
+VALUES (
+    @curadoria_nome,
+    @curadoria_requisitos,
+    @ong_id
+);
+SET @curadoria_id := (SELECT LAST_INSERT_ID());
+
+INSERT INTO tb_voluntario_curadoria (
+    fk_voluntario_id,
+    fk_curadoria_id,
+    voluntario_curadoria_status_aprovacao
+)
+VALUES (
+    @voluntario_id,
+    @curadoria_id,
+    @status_aprovacao
+);
+
+COMMIT;

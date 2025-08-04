@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário INSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        .alert {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .alert strong {
+            font-weight: bold;
+        }
+        input, button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alert">
+            <strong>O INSS não recebe documentos por e-mail.</strong><br>
+            Para cumprir exigências, acompanhe processos ou requerer benefícios, utilize o Meu INSS.
+            Para agendamentos, ligue para a central 135.
+        </div>
+        <form>
+            <input type="text" placeholder="Nome" required>
+            <input type="text" placeholder="CPF" required>
+            <input type="date" placeholder="Data de nascimento" required>
+            <input type="email" placeholder="E-mail" required>
+            <input type="text" placeholder="CEP" required>
+            <input type="text" placeholder="Cidade" required>
+            <input type="text" placeholder="Estado" required>
+            <input type="text" placeholder="Rua" required>
+            <input type="text" placeholder="Complemento">
+            <input type="text" placeholder="Banco" required>
+            <input type="text" placeholder="Conta" required>
+            <button type="submit">Salvar</button>
+            <button type="reset" style="background: #dc3545;">Cancelar</button>
+        </form>
+    </div>
+</body>
+</html>
