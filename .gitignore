@@ -1,2 +1,26 @@
 .DS_Store
 .DS_Store
+# Arquivos temporários do Microsoft Word
+~$*.docx
+~$*.doc
+~$*.dotx
+~$*.dot
+
+# Arquivos temporários do Microsoft Excel
+~$*.xlsx
+~$*.xls
+~$*.xltx
+~$*.xlt
+
+# Arquivos temporários do PowerPoint
+~$*.pptx
+~$*.ppt
+~$*.potx
+~$*.pot
+
+# Arquivos de backup e temporários em geral
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
