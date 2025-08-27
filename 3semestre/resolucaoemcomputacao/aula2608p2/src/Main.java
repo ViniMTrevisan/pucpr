@@ -4,10 +4,9 @@ public class Main {
     public static void main(String[] args) {
         ArrayList list = new ArrayList();
         int cont = 0;
-        list.add(cont);
-        while (cont <= 10 ) {
-            cont++;
+        while (cont <= 11 ) {
             list.add(cont);
+            cont++;
         }
 
         System.out.println(list);
