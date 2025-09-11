@@ -1,0 +1,86 @@
+{
+  "id": "chk-module-release-v1.0",
+  "artifact": "Módulo de Faturamento v1.0",
+  "version": "1.0",
+  "created_by": "Sistema de Auditoria Gemini",
+  "questions": [
+    {
+      "category": "Documentação",
+      "id": "DOC-01",
+      "text": "A documentação de uso (README.md) está atualizada com as novas features?",
+      "type": "boolean",
+      "weight": 1
+    },
+    {
+      "category": "Documentação",
+      "id": "DOC-02",
+      "text": "Link para a documentação técnica/API (Swagger, Confluence, etc.)",
+      "type": "text",
+      "weight": 0
+    },
+    {
+      "category": "Código e Arquitetura",
+      "id": "CODE-01",
+      "text": "O código segue os padrões de estilo (linting) definidos pela equipe?",
+      "type": "boolean",
+      "weight": 1
+    },
+    {
+      "category": "Código e Arquitetura",
+      "id": "CODE-02",
+      "text": "Qual o nível de complexidade ciclomática das funções críticas?",
+      "type": "choice",
+      "options": ["Baixo", "Médio", "Alto"],
+      "accept": ["Baixo", "Médio"],
+      "weight": 2
+    },
+    {
+      "category": "Testes",
+      "id": "TEST-01",
+      "text": "A cobertura de testes unitários do novo código é superior a 85%?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Testes",
+      "id": "TEST-02",
+      "text": "Os testes de integração (end-to-end) estão passando na pipeline de CI?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Segurança",
+      "id": "SEC-01",
+      "text": "A análise estática de segurança (SAST) encontrou alguma vulnerabilidade crítica ou alta?",
+      "type": "boolean",
+      "weight": 3,
+      "expected": false
+    },
+    {
+      "category": "Segurança",
+      "id": "SEC-02",
+      "text": "Dados sensíveis (senhas, tokens, chaves) estão sendo expostos em logs?",
+      "type": "boolean",
+      "weight": 3,
+      "expected": false
+    },
+    {
+      "category": "Implantação (Deployment)",
+      "id": "DEP-01",
+      "text": "O processo de rollback (reversão) foi documentado e testado?",
+      "type": "boolean",
+      "weight": 2
+    },
+    {
+      "category": "Implantação (Deployment)",
+      "id": "DEP-02",
+      "text": "As novas métricas de monitoramento e alertas foram configuradas em produção?",
+      "type": "boolean",
+      "weight": 2
+    }
+  ],
+  "escalation": {
+    "levels": ["team_lead", "manager", "quality_owner"],
+    "threshold_days": { "low": 5, "medium": 3, "high": 1 }
+  }
+}
