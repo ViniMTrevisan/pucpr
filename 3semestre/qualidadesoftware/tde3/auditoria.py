@@ -17,6 +17,7 @@ from typing import Dict, Any, List, Optional
 import textwrap
 import uuid
 
+
 DB_PATH = "audits.db"
 
 # -------------------------
@@ -477,10 +478,6 @@ def main():
 
     sp_esc = sp.add_parser("auto-escalate", help="Roda verificação de escalonamento")
 
-    sp_gen = sp.add_parser("gen-video-script", help="Gera roteiro de vídeo")
-    sp_gen.add_argument("--audit-id", required=False)
-    sp_gen.add_argument("--team", required=True)
-
     args = p.parse_args()
     if args.cmd == "init-db":
         init_db()
@@ -519,8 +516,6 @@ def main():
         update_nc(args.id, status=args.status, assigned_to=args.assign, due_in_days=args.due_days, note=args.note)
     elif args.cmd == "auto-escalate":
         auto_escalate()
-    elif args.cmd == "gen-video-script":
-        gen_video_script(args.audit_id, args.team)
     else:
         p.print_help()
 

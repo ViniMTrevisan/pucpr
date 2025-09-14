@@ -1,0 +1,125 @@
+{
+  "id": "chk-library-process-v1.4",
+  "artifact": "Auditoria de Processos da Biblioteca",
+  "version": "1.0",
+  "created_by": "Sistema de Auditoria Viguni",
+  "questions": [
+    {
+      "category": "Empréstimo de Livros",
+      "id": "LOAN-01",
+      "text": "O livro escolhido pelo estudante foi entregue ao bibliotecário?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Empréstimo de Livros",
+      "id": "LOAN-02",
+      "text": "A carteirinha foi solicitada?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Empréstimo de Livros",
+      "id": "LOAN-03",
+      "text": "A elegibilidade do livro foi consultada no sistema?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Empréstimo de Livros",
+      "id": "LOAN-04",
+      "text": "O empréstimo foi devidamente registardo no sistema da biblioteca?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Empréstimo de Livros",
+      "id": "LOAN-05",
+      "text": "O prazo para devolução foi informado para o estudante?",
+      "type": "boolean",
+      "weight": 2
+    },
+    {
+      "category": "Empréstimo de Livros",
+      "id": "LOAN-06",
+      "text": "O estudante conseguiu receber o serviço esperado?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Tratamento de Irregularidades",
+      "id": "IRREG-01",
+      "text": "O tipo de irregularidade foi identificada?",
+      "type": "boolean",
+      "weight": 2
+    },
+    {
+      "category": "Tratamento de Irregularidades",
+      "id": "IRREG-02",
+      "text": "A irregularidade encontrada foi informada?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Tratamento de Irregularidades",
+      "id": "IRREG-03",
+      "text": "O estudante foi informado de forma clara sobre como regulamentar sua situação?",
+      "type": "boolean",
+      "weight": 2
+    },
+    {
+      "category": "Devolução de Livros",
+      "id": "RETURN-01",
+      "text": "Os livros entregues foram os mesmos emprestados?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Devolução de Livros",
+      "id": "RETURN-02",
+      "text": "Os livros entregues estão dentro do prazo informado?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Devolução de Livros",
+      "id": "RETURN-03",
+      "text": "Os livros entregues estão na mesma condição de quando foram emprestados?",
+      "type": "boolean",
+      "weight": 2
+    },
+    {
+      "category": "Devolução de Livros",
+      "id": "RETURN-04",
+      "text": "O bibliotecário registrou a devolução do livro no sistema da Biblioteca?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Devolução de Livros",
+      "id": "RETURN-05",
+      "text": "A confirmação do encerramento do empréstimo foi realizada pelo bibliotecário?",
+      "type": "boolean",
+      "weight": 3
+    },
+    {
+      "category": "Devolução de Livros",
+      "id": "RETURN-06",
+      "text": "A mensagem de conclusão de empréstimo foi enviada ao estudante?",
+      "type": "boolean",
+      "weight": 2
+    }
+  ],
+  "escalation": {
+    "levels": [
+      "bibliotecario_chefe",
+      "coordenador_academico",
+      "diretor"
+    ],
+    "threshold_days": {
+      "low": 7,
+      "medium": 5,
+      "high": 2
+    }
+  }
+}
