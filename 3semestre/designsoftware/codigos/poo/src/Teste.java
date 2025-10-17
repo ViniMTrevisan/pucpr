@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class Teste {
     public static void main(String[] args) {
         Cliente vini = new Cliente("Vinicius", "123.456.789-12");
