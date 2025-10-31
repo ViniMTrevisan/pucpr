@@ -6,17 +6,15 @@ public class Fila implements EstruturaDeDados {
         this.inicio = null;
         this.fim = null;
     }
-    
     @Override
     public void adicionar(Ponto ponto) {
         No novoNo = new No(ponto);
         if (estaVazia()) {
             inicio = novoNo;
-            fim = novoNo;
         } else {
             fim.proximo = novoNo;
-            fim = novoNo;
         }
+        fim = novoNo;
     }
     
     @Override

@@ -12,7 +12,6 @@ public class FloodFillerMelhorado {
     public void preencher(String arquivoEntrada, String arquivoSaida, Ponto pontoInicial, 
                          Color novaCor, EstruturaDeDados estrutura) {
         try {
-            // Carrega a imagem
             BufferedImage imagem = ImageIO.read(new File(arquivoEntrada));
             int largura = imagem.getWidth();
             int altura = imagem.getHeight();
