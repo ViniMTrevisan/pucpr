@@ -1,0 +1,84 @@
+--- Relatório de Comparação de Funções Hash
+Nomes lidos: 5001
+Capacidade da tabela: 32
+
+Tabela 1 (Hash1 - soma dos caracteres):
+  Eventos de colisão: 4969
+  Comparações de colisão (soma dos tamanhos dos buckets ao inserir): 389903
+  Tempo de inserção (ms): 1,684
+  Tempo de busca (ms): 4,467
+  Encontrados nas buscas: 5001
+  Distribuição (índice:quantidade):
+     0: 160
+     1: 171
+     2: 161
+     3: 146
+     4: 150
+     5: 149
+     6: 167
+     7: 159
+     8: 164
+     9: 146
+    10: 155
+    11: 149
+    12: 176
+    13: 150
+    14: 182
+    15: 148
+    16: 139
+    17: 146
+    18: 162
+    19: 160
+    20: 148
+    21: 152
+    22: 158
+    23: 159
+    24: 147
+    25: 149
+    26: 157
+    27: 147
+    28: 160
+    29: 159
+    30: 177
+    31: 148
+
+Tabela 2 (Hash2 - djb2):
+  Eventos de colisão: 4969
+  Comparações de colisão (soma dos tamanhos dos buckets ao inserir): 389903
+  Tempo de inserção (ms): 0,822
+  Tempo de busca (ms): 3,004
+  Encontrados nas buscas: 5001
+  Distribuição (índice:quantidade):
+     0: 147
+     1: 160
+     2: 159
+     3: 177
+     4: 148
+     5: 160
+     6: 171
+     7: 161
+     8: 146
+     9: 150
+    10: 149
+    11: 167
+    12: 159
+    13: 164
+    14: 146
+    15: 155
+    16: 149
+    17: 176
+    18: 150
+    19: 182
+    20: 148
+    21: 139
+    22: 146
+    23: 162
+    24: 160
+    25: 148
+    26: 152
+    27: 158
+    28: 159
+    29: 147
+    30: 149
+    31: 157
+
