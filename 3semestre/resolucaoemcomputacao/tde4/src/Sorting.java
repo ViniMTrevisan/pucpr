@@ -56,7 +56,6 @@ public class Sorting {
         return i + 1;
     }
 
-    // Helper to get a copy for sorting so original remains unchanged
     public static int[] copy(int[] src) {
         return Arrays.copyOf(src, src.length);
     }

@@ -22,7 +22,7 @@ public class Main {
                 if (i < fim) System.out.print(", ");
             }
             System.out.println("]");
-            System.out.println("Pivô escolhido: " + vetor[inicio]);
+            System.out.println("Pivô escolhido: " + vetor[fim]);
 
             int posicaoPivo = particiona(vetor, inicio, fim);
             quickSort(vetor, inicio, posicaoPivo - 1);
@@ -31,9 +31,9 @@ public class Main {
     }
 
     public static int particiona(int[] vetor, int inicio, int fim) {
-        int pivo = vetor[inicio];
-        int esquerda = inicio + 1;
-        int direita = fim;
+        int pivo = vetor[fim];
+        int esquerda = inicio;
+        int direita = fim - 1;
 
         while (true) {
             while (esquerda <= direita && vetor[esquerda] <= pivo) {
@@ -52,11 +52,11 @@ public class Main {
             }
         }
 
-        int temp = vetor[inicio];
-        vetor[inicio] = vetor[direita];
-        vetor[direita] = temp;
+        int temp = vetor[fim];
+        vetor[fim] = vetor[esquerda];
+        vetor[esquerda] = temp;
 
-        return direita;
+        return esquerda;
     }
 
     public static void exibirVetor(int[] vetor) {
