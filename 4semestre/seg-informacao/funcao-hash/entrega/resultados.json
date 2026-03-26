@@ -1,0 +1,83 @@
+{
+  "data": "25/03/2026",
+  "participantes": "Guilherme Reis, Nicolas Lobo, Vinicius Trevisan",
+  "resultados": [
+    {
+      "tipo": "Imagem (.jpg)",
+      "original": {
+        "name": "imagem_original.jpg",
+        "size": 34776,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "modificado": {
+        "name": "imagem_modificada.jpg",
+        "size": 34751,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "md5_original": "a611ed85db0a65d092347ff06eddd97c",
+      "md5_modificado": "be19fccbf9b111eedfe2d92067bdfda2",
+      "md5_iguais": false,
+      "sha256_original": "12ff3b4f8d72691d8577095e61f4878b28578a01bdbcde38aae16cfa6ff5f6e4",
+      "sha256_modificado": "3719dd4250fbd31a4f635d9f2bb0e7f22db91c923e09b30bb588e0547c313cd4",
+      "sha256_iguais": false
+    },
+    {
+      "tipo": "Word (.doc)",
+      "original": {
+        "name": "documento_original.doc",
+        "size": 134,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "modificado": {
+        "name": "documento_modificado.doc",
+        "size": 134,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "md5_original": "cc3df8548219b321ca9eba8f383b6a66",
+      "md5_modificado": "c3b46ea0502172102e2c2b645de9ca09",
+      "md5_iguais": false,
+      "sha256_original": "f7d548ac0c1a90c69e6de8cd60693bf12168372ba58d8fe519176de0f71dbb77",
+      "sha256_modificado": "b9f9737a64229e39cd0cd8215b2465cffdbc36692a91453086439fc52d7e9723",
+      "sha256_iguais": false
+    },
+    {
+      "tipo": "Excel (.xlsx)",
+      "original": {
+        "name": "planilha_original.xlsx",
+        "size": 4998,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "modificado": {
+        "name": "planilha_modificada.xlsx",
+        "size": 4998,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "md5_original": "b6039319ceeac33a14fb894c48481670",
+      "md5_modificado": "e2b3322fef055ed50249a40b9fe2a5ff",
+      "md5_iguais": false,
+      "sha256_original": "619a6b742ff398516155aa798a1ddd4115d775d0b699061d883cbad52c8302b0",
+      "sha256_modificado": "69f2dbe906004a508c6e49ab14b5cc5ade03e8fb8031179e57572e2a3411a3d4",
+      "sha256_iguais": false
+    },
+    {
+      "tipo": "Executavel (.exe)",
+      "original": {
+        "name": "executavel_original.exe",
+        "size": 4096,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "modificado": {
+        "name": "executavel_modificado.exe",
+        "size": 4096,
+        "mtime": "25/03/2026 13:22:17"
+      },
+      "md5_original": "13a804b8601b419ee15f9a1f110ab21d",
+      "md5_modificado": "d1f51d2ab311fe9cb132c349109ffe3f",
+      "md5_iguais": false,
+      "sha256_original": "474771bad9ace8843d2460b2080e40053017258185b28ddc94a76ca1fec60fec",
+      "sha256_modificado": "aeab9225d095a86f41e16eb6d9bf3fe0f0c99fcbc85e7cbf711fe06fb0cfd280",
+      "sha256_iguais": false
+    }
+  ],
+  "desafio_validacao_ok": true
+}

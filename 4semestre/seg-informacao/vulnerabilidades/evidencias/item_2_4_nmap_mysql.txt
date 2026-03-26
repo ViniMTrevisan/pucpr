@@ -1,0 +1,44 @@
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-25 14:42 +0000
+Nmap scan report for 172.17.0.5
+Host is up (0.00013s latency).
+
+PORT     STATE  SERVICE VERSION
+80/tcp   closed http
+3306/tcp open   mysql?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port3306-TCP:V=7.98%I=7%D=3/25%Time=69C3F46E%P=aarch64-unknown-linux-gn
+SF:u%r(NULL,4D,"I\0\0\0\n9\.6\.0\0\t\0\0\x001%e\r\x07y\x16S\0\xff\xff\xff\
+SF:x02\0\xff\xdf\x15\0\0\0\0\0\0\0\0\0\0\x05\x0f\x01iAY\?\x04\)\x04o\x17\0
+SF:caching_sha2_password\0")%r(GenericLines,72,"I\0\0\0\n9\.6\.0\0\t\0\0\x
+SF:001%e\r\x07y\x16S\0\xff\xff\xff\x02\0\xff\xdf\x15\0\0\0\0\0\0\0\0\0\0\x
+SF:05\x0f\x01iAY\?\x04\)\x04o\x17\0caching_sha2_password\0!\0\0\x01\xff\x8
+SF:4\x04#08S01Got\x20packets\x20out\x20of\x20order")%r(GetRequest,72,"I\0\
+SF:0\0\n9\.6\.0\0\n\0\0\0\x1d\\{5GwY4\0\xff\xff\xff\x02\0\xff\xdf\x15\0\0\
+SF:0\0\0\0\0\0\0\0sx\+@Ca~\^\x014/\[\0caching_sha2_password\0!\0\0\x01\xff
+SF:\x84\x04#08S01Got\x20packets\x20out\x20of\x20order")%r(HTTPOptions,72,"
+SF:I\0\0\0\n9\.6\.0\0\x0b\0\0\0\?BV'}H\x0b\^\0\xff\xff\xff\x02\0\xff\xdf\x
+SF:15\0\0\0\0\0\0\0\0\0\0\x1a\x12`\+as0X1a\x13K\0caching_sha2_password\0!\
+SF:0\0\x01\xff\x84\x04#08S01Got\x20packets\x20out\x20of\x20order")%r(RTSPR
+SF:equest,72,"I\0\0\0\n9\.6\.0\0\x0c\0\0\0\.MYI<B\x0fB\0\xff\xff\xff\x02\0
+SF:\xff\xdf\x15\0\0\0\0\0\0\0\0\0\0J\ru_\x1cE!%#f%V\0caching_sha2_password
+SF:\0!\0\0\x01\xff\x84\x04#08S01Got\x20packets\x20out\x20of\x20order")%r(R
+SF:PCCheck,72,"I\0\0\0\n9\.6\.0\0\r\0\0\0`\x16w'OnO=\0\xff\xff\xff\x02\0\x
+SF:ff\xdf\x15\0\0\0\0\0\0\0\0\0\0\x1e\x0fk\|\rcPxQD1<\0caching_sha2_passwo
+SF:rd\0!\0\0\x01\xff\x84\x04#08S01Got\x20packets\x20out\x20of\x20order")%r
+SF:(DNSVersionBindReqTCP,72,"I\0\0\0\n9\.6\.0\0\x0e\0\0\0{lpP\x108gT\0\xff
+SF:\xff\xff\x02\0\xff\xdf\x15\0\0\0\0\0\0\0\0\0\0D_y\x10\x16\?n\]\x10\x1f4
+SF:\x06\0caching_sha2_password\0!\0\0\x01\xff\x84\x04#08S01Got\x20packets\
+SF:x20out\x20of\x20order")%r(DNSStatusRequestTCP,72,"I\0\0\0\n9\.6\.0\0\x0
+SF:f\0\0\0QKA\*~\*o4\0\xff\xff\xff\x02\0\xff\xdf\x15\0\0\0\0\0\0\0\0\0\0AY
+SF::\)F\x13J\x1eJ\*Bn\0caching_sha2_password\0!\0\0\x01\xff\x84\x04#08S01G
+SF:ot\x20packets\x20out\x20of\x20order")%r(Help,72,"I\0\0\0\n9\.6\.0\0\x10
+SF:\0\0\0\x1ai\x11\x0bLL@\^\0\xff\xff\xff\x02\0\xff\xdf\x15\0\0\0\0\0\0\0\
+SF:0\0\0\)X_\n%1g\x1a\]3\x15H\0caching_sha2_password\0!\0\0\x01\xff\x84\x0
+SF:4#08S01Got\x20packets\x20out\x20of\x20order")%r(SSLSessionReq,72,"I\0\0
+SF:\0\n9\.6\.0\0\x11\0\0\0\x20\x108':Si/\0\xff\xff\xff\x02\0\xff\xdf\x15\0
+SF:\0\0\0\0\0\0\0\0\0!\x0e\x1e\x17I\(lC;\tbT\0caching_sha2_password\0!\0\0
+SF:\x01\xff\x84\x04#08S01Got\x20packets\x20out\x20of\x20order");
+MAC Address: 16:3A:BD:16:BC:41 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.36 seconds

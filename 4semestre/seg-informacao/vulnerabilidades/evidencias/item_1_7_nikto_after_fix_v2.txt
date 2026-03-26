@@ -1,0 +1,16 @@
+- Nikto v2.6.0
+---------------------------------------------------------------------------
++ Your Nikto installation is out of date.
++ Target IP:          172.17.0.2
++ Target Hostname:    172.17.0.2
++ Target Port:        80
++ Platform:           Unknown
++ Start Time:         2026-03-25 14:37:33 (GMT0)
+---------------------------------------------------------------------------
++ Server: nginx
++ No CGI Directories found (use '-C all' to force check all possible dirs). CGI tests skipped.
++ [007352] /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ 8218 requests: 0 errors and 1 item reported on the remote host
++ End Time:           2026-03-25 14:38:00 (GMT0) (27 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested

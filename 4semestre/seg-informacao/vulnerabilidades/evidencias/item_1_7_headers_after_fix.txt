@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 25 Mar 2026 14:37:32 GMT
+Content-Type: text/html
+Content-Length: 896
+Last-Modified: Tue, 24 Mar 2026 15:38:34 GMT
+Connection: keep-alive
+ETag: "69c2affa-380"
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+

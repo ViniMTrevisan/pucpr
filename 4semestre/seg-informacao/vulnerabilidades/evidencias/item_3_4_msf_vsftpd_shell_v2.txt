@@ -1,0 +1,489 @@
+[*] Using configured payload cmd/linux/http/x86/meterpreter_reverse_tcp
+
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS                   yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT   21               yes       The target port (TCP)
+
+
+Payload options (cmd/linux/http/x86/meterpreter_reverse_tcp):
+
+   Name            Current Setting  Required  Description
+   ----            ---------------  --------  -----------
+   FETCH_COMMAND   CURL             yes       Command to fetch payload (Accepted: CURL, FTP, TFTP, TNFTP, WGET)
+   FETCH_DELETE    false            yes       Attempt to delete the binary after execution
+   FETCH_FILELESS  none             yes       Attempt to run payload without touching disk by using anonymous handles, requires Linux ≥3.17 (for Python variant also Python ≥3.8, tested shells are sh, bash, zsh) (Accepted: none, python3.8+, shell-search, shell)
+   FETCH_SRVHOST                    no        Local IP to use for serving payload
+   FETCH_SRVPORT   8080             yes       Local port to use for serving payload
+   FETCH_URIPATH                    no        Local URI to use for serving payload
+   LHOST                            yes       The listen address (an interface may be specified)
+   LPORT           4444             yes       The listen port
+
+
+   When FETCH_COMMAND is one of CURL,GET,WGET:
+
+   Name        Current Setting  Required  Description
+   ----        ---------------  --------  -----------
+   FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+
+   When FETCH_FILELESS is none:
+
+   Name                Current Setting  Required  Description
+   ----                ---------------  --------  -----------
+   FETCH_FILENAME      jichbhTylSd      no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+   FETCH_WRITABLE_DIR  ./               yes       Remote writable dir to store payload; cannot contain spaces
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Linux/Unix Command
+
+
+
+View the full module info with the info, or info -d command.
+
+
+Compatible Payloads
+===================
+
+   #    Name                                                        Disclosure Date  Rank    Check  Description
+   -    ----                                                        ---------------  ----    -----  -----------
+   0    payload/cmd/linux/http/aarch64/chmod                        .                normal  No     HTTP Fetch, Linux Chmod
+   1    payload/cmd/linux/http/aarch64/meterpreter/reverse_tcp      .                normal  No     HTTP Fetch, Reverse TCP Stager
+   2    payload/cmd/linux/http/aarch64/meterpreter_reverse_http     .                normal  No     HTTP Fetch
+   3    payload/cmd/linux/http/aarch64/meterpreter_reverse_https    .                normal  No     HTTP Fetch
+   4    payload/cmd/linux/http/aarch64/meterpreter_reverse_tcp      .                normal  No     HTTP Fetch
+   5    payload/cmd/linux/http/aarch64/shell/reverse_tcp            .                normal  No     HTTP Fetch, Linux dup2 Command Shell, Reverse TCP Stager
+   6    payload/cmd/linux/http/aarch64/shell_reverse_tcp            .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   7    payload/cmd/linux/http/armbe/meterpreter_reverse_http       .                normal  No     HTTP Fetch
+   8    payload/cmd/linux/http/armbe/meterpreter_reverse_https      .                normal  No     HTTP Fetch
+   9    payload/cmd/linux/http/armbe/meterpreter_reverse_tcp        .                normal  No     HTTP Fetch
+   10   payload/cmd/linux/http/armbe/shell_bind_tcp                 .                normal  No     HTTP Fetch, Linux ARM Big Endian Command Shell, Bind TCP Inline
+   11   payload/cmd/linux/http/armle/adduser                        .                normal  No     HTTP Fetch, Linux Add User
+   12   payload/cmd/linux/http/armle/chmod                          .                normal  No     HTTP Fetch, Linux Chmod
+   13   payload/cmd/linux/http/armle/exec                           .                normal  No     HTTP Fetch, Linux Execute Command
+   14   payload/cmd/linux/http/armle/meterpreter/bind_tcp           .                normal  No     HTTP Fetch, Bind TCP Stager
+   15   payload/cmd/linux/http/armle/meterpreter/reverse_tcp        .                normal  No     HTTP Fetch, Reverse TCP Stager
+   16   payload/cmd/linux/http/armle/meterpreter_reverse_http       .                normal  No     HTTP Fetch
+   17   payload/cmd/linux/http/armle/meterpreter_reverse_https      .                normal  No     HTTP Fetch
+   18   payload/cmd/linux/http/armle/meterpreter_reverse_tcp        .                normal  No     HTTP Fetch
+   19   payload/cmd/linux/http/armle/shell/bind_tcp                 .                normal  No     HTTP Fetch, Linux dup2 Command Shell, Bind TCP Stager
+   20   payload/cmd/linux/http/armle/shell/reverse_tcp              .                normal  No     HTTP Fetch, Linux dup2 Command Shell, Reverse TCP Stager
+   21   payload/cmd/linux/http/armle/shell_bind_tcp                 .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   22   payload/cmd/linux/http/armle/shell_reverse_tcp              .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   23   payload/cmd/linux/http/mips64/meterpreter_reverse_http      .                normal  No     HTTP Fetch
+   24   payload/cmd/linux/http/mips64/meterpreter_reverse_https     .                normal  No     HTTP Fetch
+   25   payload/cmd/linux/http/mips64/meterpreter_reverse_tcp       .                normal  No     HTTP Fetch
+   26   payload/cmd/linux/http/mipsbe/exec                          .                normal  No     HTTP Fetch, Linux Execute Command
+   27   payload/cmd/linux/http/mipsbe/meterpreter/reverse_tcp       .                normal  No     HTTP Fetch, Reverse TCP Stager
+   28   payload/cmd/linux/http/mipsbe/meterpreter_reverse_http      .                normal  No     HTTP Fetch
+   29   payload/cmd/linux/http/mipsbe/meterpreter_reverse_https     .                normal  No     HTTP Fetch
+   30   payload/cmd/linux/http/mipsbe/meterpreter_reverse_tcp       .                normal  No     HTTP Fetch
+   31   payload/cmd/linux/http/mipsbe/reboot                        .                normal  No     HTTP Fetch, Linux Reboot
+   32   payload/cmd/linux/http/mipsbe/shell/reverse_tcp             .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager
+   33   payload/cmd/linux/http/mipsbe/shell_bind_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   34   payload/cmd/linux/http/mipsbe/shell_reverse_tcp             .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   35   payload/cmd/linux/http/mipsle/exec                          .                normal  No     HTTP Fetch, Linux Execute Command
+   36   payload/cmd/linux/http/mipsle/meterpreter/reverse_tcp       .                normal  No     HTTP Fetch, Reverse TCP Stager
+   37   payload/cmd/linux/http/mipsle/meterpreter_reverse_http      .                normal  No     HTTP Fetch
+   38   payload/cmd/linux/http/mipsle/meterpreter_reverse_https     .                normal  No     HTTP Fetch
+   39   payload/cmd/linux/http/mipsle/meterpreter_reverse_tcp       .                normal  No     HTTP Fetch
+   40   payload/cmd/linux/http/mipsle/reboot                        .                normal  No     HTTP Fetch, Linux Reboot
+   41   payload/cmd/linux/http/mipsle/shell/reverse_tcp             .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager
+   42   payload/cmd/linux/http/mipsle/shell_bind_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   43   payload/cmd/linux/http/mipsle/shell_reverse_tcp             .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   44   payload/cmd/linux/http/ppc/shell_bind_tcp                   .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   45   payload/cmd/linux/http/ppc/shell_reverse_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   46   payload/cmd/linux/http/ppc64/shell_bind_tcp                 .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   47   payload/cmd/linux/http/ppc64/shell_reverse_tcp              .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   48   payload/cmd/linux/http/riscv32le/chmod                      .                normal  No     HTTP Fetch, Linux Chmod
+   49   payload/cmd/linux/http/riscv32le/exec                       .                normal  No     HTTP Fetch, Linux Execute Command
+   50   payload/cmd/linux/http/riscv32le/reboot                     .                normal  No     HTTP Fetch, Linux Reboot
+   51   payload/cmd/linux/http/riscv32le/shell_bind_tcp             .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   52   payload/cmd/linux/http/riscv32le/shell_reverse_tcp          .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   53   payload/cmd/linux/http/riscv64le/chmod                      .                normal  No     HTTP Fetch, Linux Chmod
+   54   payload/cmd/linux/http/riscv64le/exec                       .                normal  No     HTTP Fetch, Linux Execute Command
+   55   payload/cmd/linux/http/riscv64le/reboot                     .                normal  No     HTTP Fetch, Linux Reboot
+   56   payload/cmd/linux/http/riscv64le/shell_bind_tcp             .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   57   payload/cmd/linux/http/riscv64le/shell_reverse_tcp          .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   58   payload/cmd/linux/http/x64/exec                             .                normal  No     HTTP Fetch, Linux Execute Command
+   59   payload/cmd/linux/http/x64/meterpreter/bind_tcp             .                normal  No     HTTP Fetch, Bind TCP Stager
+   60   payload/cmd/linux/http/x64/meterpreter/reverse_sctp         .                normal  No     HTTP Fetch, Reverse SCTP Stager
+   61   payload/cmd/linux/http/x64/meterpreter/reverse_tcp          .                normal  No     HTTP Fetch, Reverse TCP Stager
+   62   payload/cmd/linux/http/x64/meterpreter_reverse_http         .                normal  No     HTTP Fetch
+   63   payload/cmd/linux/http/x64/meterpreter_reverse_https        .                normal  No     HTTP Fetch
+   64   payload/cmd/linux/http/x64/meterpreter_reverse_tcp          .                normal  No     HTTP Fetch
+   65   payload/cmd/linux/http/x64/pingback_bind_tcp                .                normal  No     HTTP Fetch, Linux x64 Pingback, Bind TCP Inline
+   66   payload/cmd/linux/http/x64/pingback_reverse_tcp             .                normal  No     HTTP Fetch, Linux x64 Pingback, Reverse TCP Inline
+   67   payload/cmd/linux/http/x64/set_hostname                     .                normal  No     HTTP Fetch
+   68   payload/cmd/linux/http/x64/shell/bind_tcp                   .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Stager
+   69   payload/cmd/linux/http/x64/shell/reverse_sctp               .                normal  No     HTTP Fetch, Linux Command Shell, Reverse SCTP Stager
+   70   payload/cmd/linux/http/x64/shell/reverse_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager
+   71   payload/cmd/linux/http/x64/shell_bind_ipv6_tcp              .                normal  No     HTTP Fetch, Linux x64 Command Shell, Bind TCP Inline (IPv6)
+   72   payload/cmd/linux/http/x64/shell_bind_tcp                   .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   73   payload/cmd/linux/http/x64/shell_bind_tcp_random_port       .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Random Port Inline
+   74   payload/cmd/linux/http/x64/shell_reverse_ipv6_tcp           .                normal  No     HTTP Fetch, Linux x64 Command Shell, Reverse TCP Inline (IPv6)
+   75   payload/cmd/linux/http/x64/shell_reverse_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   76   payload/cmd/linux/http/x86/adduser                          .                normal  No     HTTP Fetch, Linux Add User
+   77   payload/cmd/linux/http/x86/chmod                            .                normal  No     HTTP Fetch, Linux Chmod
+   78   payload/cmd/linux/http/x86/exec                             .                normal  No     HTTP Fetch, Linux Execute Command
+   79   payload/cmd/linux/http/x86/generic/debug_trap               .                normal  No     HTTP Fetch, Generic x86 Debug Trap
+   80   payload/cmd/linux/http/x86/generic/tight_loop               .                normal  No     HTTP Fetch, Generic x86 Tight Loop
+   81   payload/cmd/linux/http/x86/meterpreter/bind_ipv6_tcp        .                normal  No     HTTP Fetch, Bind IPv6 TCP Stager (Linux x86)
+   82   payload/cmd/linux/http/x86/meterpreter/bind_ipv6_tcp_uuid   .                normal  No     HTTP Fetch, Bind IPv6 TCP Stager with UUID Support (Linux x86)
+   83   payload/cmd/linux/http/x86/meterpreter/bind_nonx_tcp        .                normal  No     HTTP Fetch, Bind TCP Stager
+   84   payload/cmd/linux/http/x86/meterpreter/bind_tcp             .                normal  No     HTTP Fetch, Bind TCP Stager (Linux x86)
+   85   payload/cmd/linux/http/x86/meterpreter/bind_tcp_uuid        .                normal  No     HTTP Fetch, Bind TCP Stager with UUID Support (Linux x86)
+   86   payload/cmd/linux/http/x86/meterpreter/reverse_ipv6_tcp     .                normal  No     HTTP Fetch, Reverse TCP Stager (IPv6)
+   87   payload/cmd/linux/http/x86/meterpreter/reverse_nonx_tcp     .                normal  No     HTTP Fetch, Reverse TCP Stager
+   88   payload/cmd/linux/http/x86/meterpreter/reverse_tcp          .                normal  No     HTTP Fetch, Reverse TCP Stager
+   89   payload/cmd/linux/http/x86/meterpreter/reverse_tcp_uuid     .                normal  No     HTTP Fetch, Reverse TCP Stager
+   90   payload/cmd/linux/http/x86/meterpreter_reverse_http         .                normal  No     HTTP Fetch
+   91   payload/cmd/linux/http/x86/meterpreter_reverse_https        .                normal  No     HTTP Fetch
+   92   payload/cmd/linux/http/x86/meterpreter_reverse_tcp          .                normal  No     HTTP Fetch
+   93   payload/cmd/linux/http/x86/metsvc_bind_tcp                  .                normal  No     HTTP Fetch, Linux Meterpreter Service, Bind TCP
+   94   payload/cmd/linux/http/x86/metsvc_reverse_tcp               .                normal  No     HTTP Fetch, Linux Meterpreter Service, Reverse TCP Inline
+   95   payload/cmd/linux/http/x86/read_file                        .                normal  No     HTTP Fetch, Linux Read File
+   96   payload/cmd/linux/http/x86/shell/bind_ipv6_tcp              .                normal  No     HTTP Fetch, Linux Command Shell, Bind IPv6 TCP Stager (Linux x86)
+   97   payload/cmd/linux/http/x86/shell/bind_ipv6_tcp_uuid         .                normal  No     HTTP Fetch, Linux Command Shell, Bind IPv6 TCP Stager with UUID Support (Linux x86)
+   98   payload/cmd/linux/http/x86/shell/bind_nonx_tcp              .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Stager
+   99   payload/cmd/linux/http/x86/shell/bind_tcp                   .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Stager (Linux x86)
+   100  payload/cmd/linux/http/x86/shell/bind_tcp_uuid              .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Stager with UUID Support (Linux x86)
+   101  payload/cmd/linux/http/x86/shell/reverse_ipv6_tcp           .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager (IPv6)
+   102  payload/cmd/linux/http/x86/shell/reverse_nonx_tcp           .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager
+   103  payload/cmd/linux/http/x86/shell/reverse_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager
+   104  payload/cmd/linux/http/x86/shell/reverse_tcp_uuid           .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Stager
+   105  payload/cmd/linux/http/x86/shell_bind_ipv6_tcp              .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline (IPv6)
+   106  payload/cmd/linux/http/x86/shell_bind_tcp                   .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Inline
+   107  payload/cmd/linux/http/x86/shell_bind_tcp_random_port       .                normal  No     HTTP Fetch, Linux Command Shell, Bind TCP Random Port Inline
+   108  payload/cmd/linux/http/x86/shell_reverse_tcp                .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline
+   109  payload/cmd/linux/http/x86/shell_reverse_tcp_ipv6           .                normal  No     HTTP Fetch, Linux Command Shell, Reverse TCP Inline (IPv6)
+   110  payload/cmd/linux/https/aarch64/chmod                       .                normal  No     HTTPS Fetch, Linux Chmod
+   111  payload/cmd/linux/https/aarch64/meterpreter/reverse_tcp     .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   112  payload/cmd/linux/https/aarch64/meterpreter_reverse_http    .                normal  No     HTTPS Fetch
+   113  payload/cmd/linux/https/aarch64/meterpreter_reverse_https   .                normal  No     HTTPS Fetch
+   114  payload/cmd/linux/https/aarch64/meterpreter_reverse_tcp     .                normal  No     HTTPS Fetch
+   115  payload/cmd/linux/https/aarch64/shell/reverse_tcp           .                normal  No     HTTPS Fetch, Linux dup2 Command Shell, Reverse TCP Stager
+   116  payload/cmd/linux/https/aarch64/shell_reverse_tcp           .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   117  payload/cmd/linux/https/armbe/meterpreter_reverse_http      .                normal  No     HTTPS Fetch
+   118  payload/cmd/linux/https/armbe/meterpreter_reverse_https     .                normal  No     HTTPS Fetch
+   119  payload/cmd/linux/https/armbe/meterpreter_reverse_tcp       .                normal  No     HTTPS Fetch
+   120  payload/cmd/linux/https/armbe/shell_bind_tcp                .                normal  No     HTTPS Fetch, Linux ARM Big Endian Command Shell, Bind TCP Inline
+   121  payload/cmd/linux/https/armle/adduser                       .                normal  No     HTTPS Fetch, Linux Add User
+   122  payload/cmd/linux/https/armle/chmod                         .                normal  No     HTTPS Fetch, Linux Chmod
+   123  payload/cmd/linux/https/armle/exec                          .                normal  No     HTTPS Fetch, Linux Execute Command
+   124  payload/cmd/linux/https/armle/meterpreter/bind_tcp          .                normal  No     HTTPS Fetch, Bind TCP Stager
+   125  payload/cmd/linux/https/armle/meterpreter/reverse_tcp       .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   126  payload/cmd/linux/https/armle/meterpreter_reverse_http      .                normal  No     HTTPS Fetch
+   127  payload/cmd/linux/https/armle/meterpreter_reverse_https     .                normal  No     HTTPS Fetch
+   128  payload/cmd/linux/https/armle/meterpreter_reverse_tcp       .                normal  No     HTTPS Fetch
+   129  payload/cmd/linux/https/armle/shell/bind_tcp                .                normal  No     HTTPS Fetch, Linux dup2 Command Shell, Bind TCP Stager
+   130  payload/cmd/linux/https/armle/shell/reverse_tcp             .                normal  No     HTTPS Fetch, Linux dup2 Command Shell, Reverse TCP Stager
+   131  payload/cmd/linux/https/armle/shell_bind_tcp                .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   132  payload/cmd/linux/https/armle/shell_reverse_tcp             .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   133  payload/cmd/linux/https/mips64/meterpreter_reverse_http     .                normal  No     HTTPS Fetch
+   134  payload/cmd/linux/https/mips64/meterpreter_reverse_https    .                normal  No     HTTPS Fetch
+   135  payload/cmd/linux/https/mips64/meterpreter_reverse_tcp      .                normal  No     HTTPS Fetch
+   136  payload/cmd/linux/https/mipsbe/exec                         .                normal  No     HTTPS Fetch, Linux Execute Command
+   137  payload/cmd/linux/https/mipsbe/meterpreter/reverse_tcp      .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   138  payload/cmd/linux/https/mipsbe/meterpreter_reverse_http     .                normal  No     HTTPS Fetch
+   139  payload/cmd/linux/https/mipsbe/meterpreter_reverse_https    .                normal  No     HTTPS Fetch
+   140  payload/cmd/linux/https/mipsbe/meterpreter_reverse_tcp      .                normal  No     HTTPS Fetch
+   141  payload/cmd/linux/https/mipsbe/reboot                       .                normal  No     HTTPS Fetch, Linux Reboot
+   142  payload/cmd/linux/https/mipsbe/shell/reverse_tcp            .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager
+   143  payload/cmd/linux/https/mipsbe/shell_bind_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   144  payload/cmd/linux/https/mipsbe/shell_reverse_tcp            .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   145  payload/cmd/linux/https/mipsle/exec                         .                normal  No     HTTPS Fetch, Linux Execute Command
+   146  payload/cmd/linux/https/mipsle/meterpreter/reverse_tcp      .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   147  payload/cmd/linux/https/mipsle/meterpreter_reverse_http     .                normal  No     HTTPS Fetch
+   148  payload/cmd/linux/https/mipsle/meterpreter_reverse_https    .                normal  No     HTTPS Fetch
+   149  payload/cmd/linux/https/mipsle/meterpreter_reverse_tcp      .                normal  No     HTTPS Fetch
+   150  payload/cmd/linux/https/mipsle/reboot                       .                normal  No     HTTPS Fetch, Linux Reboot
+   151  payload/cmd/linux/https/mipsle/shell/reverse_tcp            .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager
+   152  payload/cmd/linux/https/mipsle/shell_bind_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   153  payload/cmd/linux/https/mipsle/shell_reverse_tcp            .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   154  payload/cmd/linux/https/ppc/shell_bind_tcp                  .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   155  payload/cmd/linux/https/ppc/shell_reverse_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   156  payload/cmd/linux/https/ppc64/shell_bind_tcp                .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   157  payload/cmd/linux/https/ppc64/shell_reverse_tcp             .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   158  payload/cmd/linux/https/riscv32le/chmod                     .                normal  No     HTTPS Fetch, Linux Chmod
+   159  payload/cmd/linux/https/riscv32le/exec                      .                normal  No     HTTPS Fetch, Linux Execute Command
+   160  payload/cmd/linux/https/riscv32le/reboot                    .                normal  No     HTTPS Fetch, Linux Reboot
+   161  payload/cmd/linux/https/riscv32le/shell_bind_tcp            .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   162  payload/cmd/linux/https/riscv32le/shell_reverse_tcp         .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   163  payload/cmd/linux/https/riscv64le/chmod                     .                normal  No     HTTPS Fetch, Linux Chmod
+   164  payload/cmd/linux/https/riscv64le/exec                      .                normal  No     HTTPS Fetch, Linux Execute Command
+   165  payload/cmd/linux/https/riscv64le/reboot                    .                normal  No     HTTPS Fetch, Linux Reboot
+   166  payload/cmd/linux/https/riscv64le/shell_bind_tcp            .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   167  payload/cmd/linux/https/riscv64le/shell_reverse_tcp         .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   168  payload/cmd/linux/https/x64/exec                            .                normal  No     HTTPS Fetch, Linux Execute Command
+   169  payload/cmd/linux/https/x64/meterpreter/bind_tcp            .                normal  No     HTTPS Fetch, Bind TCP Stager
+   170  payload/cmd/linux/https/x64/meterpreter/reverse_sctp        .                normal  No     HTTPS Fetch, Reverse SCTP Stager
+   171  payload/cmd/linux/https/x64/meterpreter/reverse_tcp         .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   172  payload/cmd/linux/https/x64/meterpreter_reverse_http        .                normal  No     HTTPS Fetch
+   173  payload/cmd/linux/https/x64/meterpreter_reverse_https       .                normal  No     HTTPS Fetch
+   174  payload/cmd/linux/https/x64/meterpreter_reverse_tcp         .                normal  No     HTTPS Fetch
+   175  payload/cmd/linux/https/x64/pingback_bind_tcp               .                normal  No     HTTPS Fetch, Linux x64 Pingback, Bind TCP Inline
+   176  payload/cmd/linux/https/x64/pingback_reverse_tcp            .                normal  No     HTTPS Fetch, Linux x64 Pingback, Reverse TCP Inline
+   177  payload/cmd/linux/https/x64/set_hostname                    .                normal  No     HTTPS Fetch
+   178  payload/cmd/linux/https/x64/shell/bind_tcp                  .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Stager
+   179  payload/cmd/linux/https/x64/shell/reverse_sctp              .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse SCTP Stager
+   180  payload/cmd/linux/https/x64/shell/reverse_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager
+   181  payload/cmd/linux/https/x64/shell_bind_ipv6_tcp             .                normal  No     HTTPS Fetch, Linux x64 Command Shell, Bind TCP Inline (IPv6)
+   182  payload/cmd/linux/https/x64/shell_bind_tcp                  .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   183  payload/cmd/linux/https/x64/shell_bind_tcp_random_port      .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Random Port Inline
+   184  payload/cmd/linux/https/x64/shell_reverse_ipv6_tcp          .                normal  No     HTTPS Fetch, Linux x64 Command Shell, Reverse TCP Inline (IPv6)
+   185  payload/cmd/linux/https/x64/shell_reverse_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   186  payload/cmd/linux/https/x86/adduser                         .                normal  No     HTTPS Fetch, Linux Add User
+   187  payload/cmd/linux/https/x86/chmod                           .                normal  No     HTTPS Fetch, Linux Chmod
+   188  payload/cmd/linux/https/x86/exec                            .                normal  No     HTTPS Fetch, Linux Execute Command
+   189  payload/cmd/linux/https/x86/generic/debug_trap              .                normal  No     HTTPS Fetch, Generic x86 Debug Trap
+   190  payload/cmd/linux/https/x86/generic/tight_loop              .                normal  No     HTTPS Fetch, Generic x86 Tight Loop
+   191  payload/cmd/linux/https/x86/meterpreter/bind_ipv6_tcp       .                normal  No     HTTPS Fetch, Bind IPv6 TCP Stager (Linux x86)
+   192  payload/cmd/linux/https/x86/meterpreter/bind_ipv6_tcp_uuid  .                normal  No     HTTPS Fetch, Bind IPv6 TCP Stager with UUID Support (Linux x86)
+   193  payload/cmd/linux/https/x86/meterpreter/bind_nonx_tcp       .                normal  No     HTTPS Fetch, Bind TCP Stager
+   194  payload/cmd/linux/https/x86/meterpreter/bind_tcp            .                normal  No     HTTPS Fetch, Bind TCP Stager (Linux x86)
+   195  payload/cmd/linux/https/x86/meterpreter/bind_tcp_uuid       .                normal  No     HTTPS Fetch, Bind TCP Stager with UUID Support (Linux x86)
+   196  payload/cmd/linux/https/x86/meterpreter/reverse_ipv6_tcp    .                normal  No     HTTPS Fetch, Reverse TCP Stager (IPv6)
+   197  payload/cmd/linux/https/x86/meterpreter/reverse_nonx_tcp    .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   198  payload/cmd/linux/https/x86/meterpreter/reverse_tcp         .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   199  payload/cmd/linux/https/x86/meterpreter/reverse_tcp_uuid    .                normal  No     HTTPS Fetch, Reverse TCP Stager
+   200  payload/cmd/linux/https/x86/meterpreter_reverse_http        .                normal  No     HTTPS Fetch
+   201  payload/cmd/linux/https/x86/meterpreter_reverse_https       .                normal  No     HTTPS Fetch
+   202  payload/cmd/linux/https/x86/meterpreter_reverse_tcp         .                normal  No     HTTPS Fetch
+   203  payload/cmd/linux/https/x86/metsvc_bind_tcp                 .                normal  No     HTTPS Fetch, Linux Meterpreter Service, Bind TCP
+   204  payload/cmd/linux/https/x86/metsvc_reverse_tcp              .                normal  No     HTTPS Fetch, Linux Meterpreter Service, Reverse TCP Inline
+   205  payload/cmd/linux/https/x86/read_file                       .                normal  No     HTTPS Fetch, Linux Read File
+   206  payload/cmd/linux/https/x86/shell/bind_ipv6_tcp             .                normal  No     HTTPS Fetch, Linux Command Shell, Bind IPv6 TCP Stager (Linux x86)
+   207  payload/cmd/linux/https/x86/shell/bind_ipv6_tcp_uuid        .                normal  No     HTTPS Fetch, Linux Command Shell, Bind IPv6 TCP Stager with UUID Support (Linux x86)
+   208  payload/cmd/linux/https/x86/shell/bind_nonx_tcp             .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Stager
+   209  payload/cmd/linux/https/x86/shell/bind_tcp                  .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Stager (Linux x86)
+   210  payload/cmd/linux/https/x86/shell/bind_tcp_uuid             .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Stager with UUID Support (Linux x86)
+   211  payload/cmd/linux/https/x86/shell/reverse_ipv6_tcp          .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager (IPv6)
+   212  payload/cmd/linux/https/x86/shell/reverse_nonx_tcp          .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager
+   213  payload/cmd/linux/https/x86/shell/reverse_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager
+   214  payload/cmd/linux/https/x86/shell/reverse_tcp_uuid          .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Stager
+   215  payload/cmd/linux/https/x86/shell_bind_ipv6_tcp             .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline (IPv6)
+   216  payload/cmd/linux/https/x86/shell_bind_tcp                  .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+   217  payload/cmd/linux/https/x86/shell_bind_tcp_random_port      .                normal  No     HTTPS Fetch, Linux Command Shell, Bind TCP Random Port Inline
+   218  payload/cmd/linux/https/x86/shell_reverse_tcp               .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline
+   219  payload/cmd/linux/https/x86/shell_reverse_tcp_ipv6          .                normal  No     HTTPS Fetch, Linux Command Shell, Reverse TCP Inline (IPv6)
+   220  payload/cmd/linux/tftp/aarch64/chmod                        .                normal  No     TFTP Fetch, Linux Chmod
+   221  payload/cmd/linux/tftp/aarch64/meterpreter/reverse_tcp      .                normal  No     TFTP Fetch, Reverse TCP Stager
+   222  payload/cmd/linux/tftp/aarch64/meterpreter_reverse_http     .                normal  No     TFTP Fetch
+   223  payload/cmd/linux/tftp/aarch64/meterpreter_reverse_https    .                normal  No     TFTP Fetch
+   224  payload/cmd/linux/tftp/aarch64/meterpreter_reverse_tcp      .                normal  No     TFTP Fetch
+   225  payload/cmd/linux/tftp/aarch64/shell/reverse_tcp            .                normal  No     TFTP Fetch, Linux dup2 Command Shell, Reverse TCP Stager
+   226  payload/cmd/linux/tftp/aarch64/shell_reverse_tcp            .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   227  payload/cmd/linux/tftp/armbe/meterpreter_reverse_http       .                normal  No     TFTP Fetch
+   228  payload/cmd/linux/tftp/armbe/meterpreter_reverse_https      .                normal  No     TFTP Fetch
+   229  payload/cmd/linux/tftp/armbe/meterpreter_reverse_tcp        .                normal  No     TFTP Fetch
+   230  payload/cmd/linux/tftp/armbe/shell_bind_tcp                 .                normal  No     TFTP Fetch, Linux ARM Big Endian Command Shell, Bind TCP Inline
+   231  payload/cmd/linux/tftp/armle/adduser                        .                normal  No     TFTP Fetch, Linux Add User
+   232  payload/cmd/linux/tftp/armle/chmod                          .                normal  No     TFTP Fetch, Linux Chmod
+   233  payload/cmd/linux/tftp/armle/exec                           .                normal  No     TFTP Fetch, Linux Execute Command
+   234  payload/cmd/linux/tftp/armle/meterpreter/bind_tcp           .                normal  No     TFTP Fetch, Bind TCP Stager
+   235  payload/cmd/linux/tftp/armle/meterpreter/reverse_tcp        .                normal  No     TFTP Fetch, Reverse TCP Stager
+   236  payload/cmd/linux/tftp/armle/meterpreter_reverse_http       .                normal  No     TFTP Fetch
+   237  payload/cmd/linux/tftp/armle/meterpreter_reverse_https      .                normal  No     TFTP Fetch
+   238  payload/cmd/linux/tftp/armle/meterpreter_reverse_tcp        .                normal  No     TFTP Fetch
+   239  payload/cmd/linux/tftp/armle/shell/bind_tcp                 .                normal  No     TFTP Fetch, Linux dup2 Command Shell, Bind TCP Stager
+   240  payload/cmd/linux/tftp/armle/shell/reverse_tcp              .                normal  No     TFTP Fetch, Linux dup2 Command Shell, Reverse TCP Stager
+   241  payload/cmd/linux/tftp/armle/shell_bind_tcp                 .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   242  payload/cmd/linux/tftp/armle/shell_reverse_tcp              .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   243  payload/cmd/linux/tftp/mips64/meterpreter_reverse_http      .                normal  No     TFTP Fetch
+   244  payload/cmd/linux/tftp/mips64/meterpreter_reverse_https     .                normal  No     TFTP Fetch
+   245  payload/cmd/linux/tftp/mips64/meterpreter_reverse_tcp       .                normal  No     TFTP Fetch
+   246  payload/cmd/linux/tftp/mipsbe/exec                          .                normal  No     TFTP Fetch, Linux Execute Command
+   247  payload/cmd/linux/tftp/mipsbe/meterpreter/reverse_tcp       .                normal  No     TFTP Fetch, Reverse TCP Stager
+   248  payload/cmd/linux/tftp/mipsbe/meterpreter_reverse_http      .                normal  No     TFTP Fetch
+   249  payload/cmd/linux/tftp/mipsbe/meterpreter_reverse_https     .                normal  No     TFTP Fetch
+   250  payload/cmd/linux/tftp/mipsbe/meterpreter_reverse_tcp       .                normal  No     TFTP Fetch
+   251  payload/cmd/linux/tftp/mipsbe/reboot                        .                normal  No     TFTP Fetch, Linux Reboot
+   252  payload/cmd/linux/tftp/mipsbe/shell/reverse_tcp             .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager
+   253  payload/cmd/linux/tftp/mipsbe/shell_bind_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   254  payload/cmd/linux/tftp/mipsbe/shell_reverse_tcp             .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   255  payload/cmd/linux/tftp/mipsle/exec                          .                normal  No     TFTP Fetch, Linux Execute Command
+   256  payload/cmd/linux/tftp/mipsle/meterpreter/reverse_tcp       .                normal  No     TFTP Fetch, Reverse TCP Stager
+   257  payload/cmd/linux/tftp/mipsle/meterpreter_reverse_http      .                normal  No     TFTP Fetch
+   258  payload/cmd/linux/tftp/mipsle/meterpreter_reverse_https     .                normal  No     TFTP Fetch
+   259  payload/cmd/linux/tftp/mipsle/meterpreter_reverse_tcp       .                normal  No     TFTP Fetch
+   260  payload/cmd/linux/tftp/mipsle/reboot                        .                normal  No     TFTP Fetch, Linux Reboot
+   261  payload/cmd/linux/tftp/mipsle/shell/reverse_tcp             .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager
+   262  payload/cmd/linux/tftp/mipsle/shell_bind_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   263  payload/cmd/linux/tftp/mipsle/shell_reverse_tcp             .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   264  payload/cmd/linux/tftp/ppc/shell_bind_tcp                   .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   265  payload/cmd/linux/tftp/ppc/shell_reverse_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   266  payload/cmd/linux/tftp/ppc64/shell_bind_tcp                 .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   267  payload/cmd/linux/tftp/ppc64/shell_reverse_tcp              .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   268  payload/cmd/linux/tftp/riscv32le/chmod                      .                normal  No     TFTP Fetch, Linux Chmod
+   269  payload/cmd/linux/tftp/riscv32le/exec                       .                normal  No     TFTP Fetch, Linux Execute Command
+   270  payload/cmd/linux/tftp/riscv32le/reboot                     .                normal  No     TFTP Fetch, Linux Reboot
+   271  payload/cmd/linux/tftp/riscv32le/shell_bind_tcp             .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   272  payload/cmd/linux/tftp/riscv32le/shell_reverse_tcp          .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   273  payload/cmd/linux/tftp/riscv64le/chmod                      .                normal  No     TFTP Fetch, Linux Chmod
+   274  payload/cmd/linux/tftp/riscv64le/exec                       .                normal  No     TFTP Fetch, Linux Execute Command
+   275  payload/cmd/linux/tftp/riscv64le/reboot                     .                normal  No     TFTP Fetch, Linux Reboot
+   276  payload/cmd/linux/tftp/riscv64le/shell_bind_tcp             .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   277  payload/cmd/linux/tftp/riscv64le/shell_reverse_tcp          .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   278  payload/cmd/linux/tftp/x64/exec                             .                normal  No     TFTP Fetch, Linux Execute Command
+   279  payload/cmd/linux/tftp/x64/meterpreter/bind_tcp             .                normal  No     TFTP Fetch, Bind TCP Stager
+   280  payload/cmd/linux/tftp/x64/meterpreter/reverse_sctp         .                normal  No     TFTP Fetch, Reverse SCTP Stager
+   281  payload/cmd/linux/tftp/x64/meterpreter/reverse_tcp          .                normal  No     TFTP Fetch, Reverse TCP Stager
+   282  payload/cmd/linux/tftp/x64/meterpreter_reverse_http         .                normal  No     TFTP Fetch
+   283  payload/cmd/linux/tftp/x64/meterpreter_reverse_https        .                normal  No     TFTP Fetch
+   284  payload/cmd/linux/tftp/x64/meterpreter_reverse_tcp          .                normal  No     TFTP Fetch
+   285  payload/cmd/linux/tftp/x64/pingback_bind_tcp                .                normal  No     TFTP Fetch, Linux x64 Pingback, Bind TCP Inline
+   286  payload/cmd/linux/tftp/x64/pingback_reverse_tcp             .                normal  No     TFTP Fetch, Linux x64 Pingback, Reverse TCP Inline
+   287  payload/cmd/linux/tftp/x64/set_hostname                     .                normal  No     TFTP Fetch
+   288  payload/cmd/linux/tftp/x64/shell/bind_tcp                   .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Stager
+   289  payload/cmd/linux/tftp/x64/shell/reverse_sctp               .                normal  No     TFTP Fetch, Linux Command Shell, Reverse SCTP Stager
+   290  payload/cmd/linux/tftp/x64/shell/reverse_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager
+   291  payload/cmd/linux/tftp/x64/shell_bind_ipv6_tcp              .                normal  No     TFTP Fetch, Linux x64 Command Shell, Bind TCP Inline (IPv6)
+   292  payload/cmd/linux/tftp/x64/shell_bind_tcp                   .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   293  payload/cmd/linux/tftp/x64/shell_bind_tcp_random_port       .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Random Port Inline
+   294  payload/cmd/linux/tftp/x64/shell_reverse_ipv6_tcp           .                normal  No     TFTP Fetch, Linux x64 Command Shell, Reverse TCP Inline (IPv6)
+   295  payload/cmd/linux/tftp/x64/shell_reverse_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   296  payload/cmd/linux/tftp/x86/adduser                          .                normal  No     TFTP Fetch, Linux Add User
+   297  payload/cmd/linux/tftp/x86/chmod                            .                normal  No     TFTP Fetch, Linux Chmod
+   298  payload/cmd/linux/tftp/x86/exec                             .                normal  No     TFTP Fetch, Linux Execute Command
+   299  payload/cmd/linux/tftp/x86/generic/debug_trap               .                normal  No     TFTP Fetch, Generic x86 Debug Trap
+   300  payload/cmd/linux/tftp/x86/generic/tight_loop               .                normal  No     TFTP Fetch, Generic x86 Tight Loop
+   301  payload/cmd/linux/tftp/x86/meterpreter/bind_ipv6_tcp        .                normal  No     TFTP Fetch, Bind IPv6 TCP Stager (Linux x86)
+   302  payload/cmd/linux/tftp/x86/meterpreter/bind_ipv6_tcp_uuid   .                normal  No     TFTP Fetch, Bind IPv6 TCP Stager with UUID Support (Linux x86)
+   303  payload/cmd/linux/tftp/x86/meterpreter/bind_nonx_tcp        .                normal  No     TFTP Fetch, Bind TCP Stager
+   304  payload/cmd/linux/tftp/x86/meterpreter/bind_tcp             .                normal  No     TFTP Fetch, Bind TCP Stager (Linux x86)
+   305  payload/cmd/linux/tftp/x86/meterpreter/bind_tcp_uuid        .                normal  No     TFTP Fetch, Bind TCP Stager with UUID Support (Linux x86)
+   306  payload/cmd/linux/tftp/x86/meterpreter/reverse_ipv6_tcp     .                normal  No     TFTP Fetch, Reverse TCP Stager (IPv6)
+   307  payload/cmd/linux/tftp/x86/meterpreter/reverse_nonx_tcp     .                normal  No     TFTP Fetch, Reverse TCP Stager
+   308  payload/cmd/linux/tftp/x86/meterpreter/reverse_tcp          .                normal  No     TFTP Fetch, Reverse TCP Stager
+   309  payload/cmd/linux/tftp/x86/meterpreter/reverse_tcp_uuid     .                normal  No     TFTP Fetch, Reverse TCP Stager
+   310  payload/cmd/linux/tftp/x86/meterpreter_reverse_http         .                normal  No     TFTP Fetch
+   311  payload/cmd/linux/tftp/x86/meterpreter_reverse_https        .                normal  No     TFTP Fetch
+   312  payload/cmd/linux/tftp/x86/meterpreter_reverse_tcp          .                normal  No     TFTP Fetch
+   313  payload/cmd/linux/tftp/x86/metsvc_bind_tcp                  .                normal  No     TFTP Fetch, Linux Meterpreter Service, Bind TCP
+   314  payload/cmd/linux/tftp/x86/metsvc_reverse_tcp               .                normal  No     TFTP Fetch, Linux Meterpreter Service, Reverse TCP Inline
+   315  payload/cmd/linux/tftp/x86/read_file                        .                normal  No     TFTP Fetch, Linux Read File
+   316  payload/cmd/linux/tftp/x86/shell/bind_ipv6_tcp              .                normal  No     TFTP Fetch, Linux Command Shell, Bind IPv6 TCP Stager (Linux x86)
+   317  payload/cmd/linux/tftp/x86/shell/bind_ipv6_tcp_uuid         .                normal  No     TFTP Fetch, Linux Command Shell, Bind IPv6 TCP Stager with UUID Support (Linux x86)
+   318  payload/cmd/linux/tftp/x86/shell/bind_nonx_tcp              .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Stager
+   319  payload/cmd/linux/tftp/x86/shell/bind_tcp                   .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Stager (Linux x86)
+   320  payload/cmd/linux/tftp/x86/shell/bind_tcp_uuid              .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Stager with UUID Support (Linux x86)
+   321  payload/cmd/linux/tftp/x86/shell/reverse_ipv6_tcp           .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager (IPv6)
+   322  payload/cmd/linux/tftp/x86/shell/reverse_nonx_tcp           .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager
+   323  payload/cmd/linux/tftp/x86/shell/reverse_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager
+   324  payload/cmd/linux/tftp/x86/shell/reverse_tcp_uuid           .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Stager
+   325  payload/cmd/linux/tftp/x86/shell_bind_ipv6_tcp              .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline (IPv6)
+   326  payload/cmd/linux/tftp/x86/shell_bind_tcp                   .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Inline
+   327  payload/cmd/linux/tftp/x86/shell_bind_tcp_random_port       .                normal  No     TFTP Fetch, Linux Command Shell, Bind TCP Random Port Inline
+   328  payload/cmd/linux/tftp/x86/shell_reverse_tcp                .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline
+   329  payload/cmd/linux/tftp/x86/shell_reverse_tcp_ipv6           .                normal  No     TFTP Fetch, Linux Command Shell, Reverse TCP Inline (IPv6)
+   330  payload/cmd/unix/adduser                                    .                normal  No     Add user with useradd
+   331  payload/cmd/unix/bind_awk                                   .                normal  No     Unix Command Shell, Bind TCP (via AWK)
+   332  payload/cmd/unix/bind_aws_instance_connect                  .                normal  No     Unix SSH Shell, Bind Instance Connect (via AWS API)
+   333  payload/cmd/unix/bind_busybox_telnetd                       .                normal  No     Unix Command Shell, Bind TCP (via BusyBox telnetd)
+   334  payload/cmd/unix/bind_inetd                                 .                normal  No     Unix Command Shell, Bind TCP (inetd)
+   335  payload/cmd/unix/bind_jjs                                   .                normal  No     Unix Command Shell, Bind TCP (via jjs)
+   336  payload/cmd/unix/bind_lua                                   .                normal  No     Unix Command Shell, Bind TCP (via Lua)
+   337  payload/cmd/unix/bind_netcat                                .                normal  No     Unix Command Shell, Bind TCP (via netcat)
+   338  payload/cmd/unix/bind_netcat_gaping                         .                normal  No     Unix Command Shell, Bind TCP (via netcat -e)
+   339  payload/cmd/unix/bind_netcat_gaping_ipv6                    .                normal  No     Unix Command Shell, Bind TCP (via netcat -e) IPv6
+   340  payload/cmd/unix/bind_nodejs                                .                normal  No     Unix Command Shell, Bind TCP (via nodejs)
+   341  payload/cmd/unix/bind_perl                                  .                normal  No     Unix Command Shell, Bind TCP (via Perl)
+   342  payload/cmd/unix/bind_perl_ipv6                             .                normal  No     Unix Command Shell, Bind TCP (via perl) IPv6
+   343  payload/cmd/unix/bind_r                                     .                normal  No     Unix Command Shell, Bind TCP (via R)
+   344  payload/cmd/unix/bind_ruby                                  .                normal  No     Unix Command Shell, Bind TCP (via Ruby)
+   345  payload/cmd/unix/bind_ruby_ipv6                             .                normal  No     Unix Command Shell, Bind TCP (via Ruby) IPv6
+   346  payload/cmd/unix/bind_socat_sctp                            .                normal  No     Unix Command Shell, Bind SCTP (via socat)
+   347  payload/cmd/unix/bind_socat_udp                             .                normal  No     Unix Command Shell, Bind UDP (via socat)
+   348  payload/cmd/unix/bind_stub                                  .                normal  No     Unix Command Shell, Bind TCP (stub)
+   349  payload/cmd/unix/bind_zsh                                   .                normal  No     Unix Command Shell, Bind TCP (via Zsh)
+   350  payload/cmd/unix/generic                                    .                normal  No     Unix Command, Generic Command Execution
+   351  payload/cmd/unix/php/bind_php                               .                normal  No     PHP Exec, PHP Command Shell, Bind TCP (via PHP)
+   352  payload/cmd/unix/php/bind_php_ipv6                          .                normal  No     PHP Exec, PHP Command Shell, Bind TCP (via php) IPv6
+   353  payload/cmd/unix/php/download_exec                          .                normal  No     PHP Exec
+   354  payload/cmd/unix/php/exec                                   .                normal  No     PHP Exec, PHP Execute Command
+   355  payload/cmd/unix/php/meterpreter/bind_tcp                   .                normal  No     PHP Exec, PHP Meterpreter, Bind TCP Stager
+   356  payload/cmd/unix/php/meterpreter/bind_tcp_ipv6              .                normal  No     PHP Exec, PHP Meterpreter, Bind TCP Stager IPv6
+   357  payload/cmd/unix/php/meterpreter/bind_tcp_ipv6_uuid         .                normal  No     PHP Exec, PHP Meterpreter, Bind TCP Stager IPv6 with UUID Support
+   358  payload/cmd/unix/php/meterpreter/bind_tcp_uuid              .                normal  No     PHP Exec, PHP Meterpreter, Bind TCP Stager with UUID Support
+   359  payload/cmd/unix/php/meterpreter/reverse_tcp                .                normal  No     PHP Exec, PHP Meterpreter, PHP Reverse TCP Stager
+   360  payload/cmd/unix/php/meterpreter/reverse_tcp_uuid           .                normal  No     PHP Exec, PHP Meterpreter, PHP Reverse TCP Stager
+   361  payload/cmd/unix/php/meterpreter_reverse_tcp                .                normal  No     PHP Exec
+   362  payload/cmd/unix/php/reverse_php                            .                normal  No     PHP Exec, PHP Command Shell, Reverse TCP (via PHP)
+   363  payload/cmd/unix/pingback_bind                              .                normal  No     Unix Command Shell, Pingback Bind TCP (via netcat)
+   364  payload/cmd/unix/pingback_reverse                           .                normal  No     Unix Command Shell, Pingback Reverse TCP (via netcat)
+   365  payload/cmd/unix/python/exec                                .                normal  No     Python Exec, Python Execute Command
+   366  payload/cmd/unix/python/meterpreter/bind_tcp                .                normal  No     Python Exec, Python Meterpreter, Python Bind TCP Stager
+   367  payload/cmd/unix/python/meterpreter/bind_tcp_uuid           .                normal  No     Python Exec, Python Meterpreter, Python Bind TCP Stager with UUID Support
+   368  payload/cmd/unix/python/meterpreter/reverse_http            .                normal  No     Python Exec, Python Meterpreter, Python Reverse HTTP Stager
+   369  payload/cmd/unix/python/meterpreter/reverse_https           .                normal  No     Python Exec, Python Meterpreter, Python Reverse HTTPS Stager
+   370  payload/cmd/unix/python/meterpreter/reverse_tcp             .                normal  No     Python Exec, Python Meterpreter, Python Reverse TCP Stager
+   371  payload/cmd/unix/python/meterpreter/reverse_tcp_ssl         .                normal  No     Python Exec, Python Meterpreter, Python Reverse TCP SSL Stager
+   372  payload/cmd/unix/python/meterpreter/reverse_tcp_uuid        .                normal  No     Python Exec, Python Meterpreter, Python Reverse TCP Stager with UUID Support
+   373  payload/cmd/unix/python/meterpreter_bind_tcp                .                normal  No     Python Exec, Python Meterpreter Shell, Bind TCP Inline
+   374  payload/cmd/unix/python/meterpreter_reverse_http            .                normal  No     Python Exec, Python Meterpreter Shell, Reverse HTTP Inline
+   375  payload/cmd/unix/python/meterpreter_reverse_https           .                normal  No     Python Exec, Python Meterpreter Shell, Reverse HTTPS Inline
+   376  payload/cmd/unix/python/meterpreter_reverse_tcp             .                normal  No     Python Exec, Python Meterpreter Shell, Reverse TCP Inline
+   377  payload/cmd/unix/python/pingback_bind_tcp                   .                normal  No     Python Exec, Python Pingback, Bind TCP (via python)
+   378  payload/cmd/unix/python/pingback_reverse_tcp                .                normal  No     Python Exec, Python Pingback, Reverse TCP (via python)
+   379  payload/cmd/unix/python/shell_bind_tcp                      .                normal  No     Python Exec, Command Shell, Bind TCP (via python)
+   380  payload/cmd/unix/python/shell_reverse_sctp                  .                normal  No     Python Exec, Command Shell, Reverse SCTP (via python)
+   381  payload/cmd/unix/python/shell_reverse_tcp                   .                normal  No     Python Exec, Command Shell, Reverse TCP (via python)
+   382  payload/cmd/unix/python/shell_reverse_tcp_ssl               .                normal  No     Python Exec, Command Shell, Reverse TCP SSL (via python)
+   383  payload/cmd/unix/python/shell_reverse_udp                   .                normal  No     Python Exec, Command Shell, Reverse UDP (via python)
+   384  payload/cmd/unix/reverse                                    .                normal  No     Unix Command Shell, Double Reverse TCP (telnet)
+   385  payload/cmd/unix/reverse_awk                                .                normal  No     Unix Command Shell, Reverse TCP (via AWK)
+   386  payload/cmd/unix/reverse_bash                               .                normal  No     Unix Command Shell, Reverse TCP (/dev/tcp)
+   387  payload/cmd/unix/reverse_bash_telnet_ssl                    .                normal  No     Unix Command Shell, Reverse TCP SSL (telnet)
+   388  payload/cmd/unix/reverse_bash_udp                           .                normal  No     Unix Command Shell, Reverse UDP (/dev/udp)
+   389  payload/cmd/unix/reverse_jjs                                .                normal  No     Unix Command Shell, Reverse TCP (via jjs)
+   390  payload/cmd/unix/reverse_ksh                                .                normal  No     Unix Command Shell, Reverse TCP (via Ksh)
+   391  payload/cmd/unix/reverse_lua                                .                normal  No     Unix Command Shell, Reverse TCP (via Lua)
+   392  payload/cmd/unix/reverse_ncat_ssl                           .                normal  No     Unix Command Shell, Reverse TCP (via ncat)
+   393  payload/cmd/unix/reverse_netcat                             .                normal  No     Unix Command Shell, Reverse TCP (via netcat)
+   394  payload/cmd/unix/reverse_netcat_gaping                      .                normal  No     Unix Command Shell, Reverse TCP (via netcat -e)
+   395  payload/cmd/unix/reverse_nodejs                             .                normal  No     Unix Command Shell, Reverse TCP (via nodejs)
+   396  payload/cmd/unix/reverse_openssl                            .                normal  No     Unix Command Shell, Double Reverse TCP SSL (openssl)
+   397  payload/cmd/unix/reverse_perl                               .                normal  No     Unix Command Shell, Reverse TCP (via Perl)
+   398  payload/cmd/unix/reverse_perl_ssl                           .                normal  No     Unix Command Shell, Reverse TCP SSL (via perl)
+   399  payload/cmd/unix/reverse_php_ssl                            .                normal  No     Unix Command Shell, Reverse TCP SSL (via php)
+   400  payload/cmd/unix/reverse_python                             .                normal  No     Unix Command Shell, Reverse TCP (via Python)
+   401  payload/cmd/unix/reverse_python_ssl                         .                normal  No     Unix Command Shell, Reverse TCP SSL (via python)
+   402  payload/cmd/unix/reverse_r                                  .                normal  No     Unix Command Shell, Reverse TCP (via R)
+   403  payload/cmd/unix/reverse_ruby                               .                normal  No     Unix Command Shell, Reverse TCP (via Ruby)
+   404  payload/cmd/unix/reverse_ruby_ssl                           .                normal  No     Unix Command Shell, Reverse TCP SSL (via Ruby)
+   405  payload/cmd/unix/reverse_socat_sctp                         .                normal  No     Unix Command Shell, Reverse SCTP (via socat)
+   406  payload/cmd/unix/reverse_socat_tcp                          .                normal  No     Unix Command Shell, Reverse TCP (via socat)
+   407  payload/cmd/unix/reverse_socat_udp                          .                normal  No     Unix Command Shell, Reverse UDP (via socat)
+   408  payload/cmd/unix/reverse_ssh                                .                normal  No     Unix Command Shell, Reverse TCP SSH
+   409  payload/cmd/unix/reverse_ssl_double_telnet                  .                normal  No     Unix Command Shell, Double Reverse TCP SSL (telnet)
+   410  payload/cmd/unix/reverse_stub                               .                normal  No     Unix Command Shell, Reverse TCP (stub)
+   411  payload/cmd/unix/reverse_tclsh                              .                normal  No     Unix Command Shell, Reverse TCP (via Tclsh)
+   412  payload/cmd/unix/reverse_zsh                                .                normal  No     Unix Command Shell, Reverse TCP (via Zsh)
+   413  payload/cmd/windows/powershell/generic/debug_trap           .                normal  No     Powershell Exec, Generic x86 Debug Trap
+   414  payload/cmd/windows/powershell/generic/tight_loop           .                normal  No     Powershell Exec, Generic x86 Tight Loop
+   415  payload/generic/custom                                      .                normal  No     Custom Payload
+   416  payload/generic/shell_bind_aws_ssm                          .                normal  No     Command Shell, Bind SSM (via AWS API)
+   417  payload/generic/shell_bind_tcp                              .                normal  No     Generic Command Shell, Bind TCP Inline
+   418  payload/generic/shell_reverse_tcp                           .                normal  No     Generic Command Shell, Reverse TCP Inline
+   419  payload/generic/ssh/interact                                .                normal  No     Interact with Established SSH Connection
+
+RHOSTS => 172.17.0.6
+RPORT => 21
+[-] The value specified for payload is not valid.
+[-] 172.17.0.6:21 - Msf::OptionValidateError One or more options failed to validate: LHOST.
+
+Active sessions
+===============
+
+No active sessions.
+
+[-] Invalid session identifier: 1
+[-] Invalid session identifier: 1
+[-] Invalid session identifier: 1
