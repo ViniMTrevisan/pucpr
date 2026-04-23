@@ -1,0 +1,1 @@
+Rodada 3: verificacao de insercao e extracao.

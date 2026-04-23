@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  AuxNet — Página Institucional da Casa de Temporada
+  =============================================================================
+
+  Projeto:  AuxNet (Equipe Píton — PUCPR CTIC 2026/S1)
+  Servidor: Nginx 1.22 no Raspberry Pi 3 Model B (192.168.1.10:80)
+  Acesso:   http://192.168.1.10 (dentro da rede AuxNet)
+            http://<IP-Tailscale> (acesso remoto do proprietário)
+
+  Decisões de design:
+  ─────────────────────────────────────────────────────────────────────────────
+  1. CSS inline + sem CDN externo
+     A rede AuxNet é uma LAN isolada — a WAN (hotspot de smartphone) pode cair
+     a qualquer momento. Se o CSS viesse de um CDN (Bootstrap, Tailwind), a
+     página ficaria sem estilo quando a internet falhasse. Todo o visual está
+     embutido no próprio HTML para garantir funcionamento offline total.
+
+  2. Sem JavaScript
+     Compatibilidade máxima: o app "Arquivos" do iOS abre páginas HTML via
+     WebView com JS desabilitado por padrão em alguns contextos. Hóspedes
+     podem usar browsers básicos em TVs ou consoles. Sem JS, a página funciona
+     em qualquer cliente HTTP, sem exceções.
+
+  3. IPs hardcoded (192.168.1.10, 192.168.1.40)
+     A arquitetura de rede do AuxNet usa IPs estáticos por design — o
+     Raspberry Pi tem IP fixo 192.168.1.10 e o ESP32 tem IP fixo 192.168.1.40,
+     fora da faixa DHCP (100–200). Portanto, não há risco de mudança de IP
+     sem regravação deliberada. Hardcodar é correto aqui.
+
+  4. Conteúdo em português
+     Todos os usuários (proprietário e hóspedes) são brasileiros.
+  =============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Viewport responsivo: garante que a página seja legível em smartphones
+       dos hóspedes sem zoom manual. width=device-width adapta o layout à
+       largura real da tela. initial-scale=1.0 impede zoom automático. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa AuxNet — Bem-vindo!</title>
+
+  <style>
+    /* ── Reset básico ── */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Tipografia e fundo ── */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f7f8fc;
+      color: #2d3748;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    /* ── Container central com largura máxima ──
+       max-width: 720px mantém o texto legível em telas largas (notebook).
+       Em telas pequenas (smartphones), ocupa 100% da largura disponível. */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── Cabeçalho ── */
+    header {
+      background: linear-gradient(135deg, #2b6cb0, #2c7a7b);
+      color: white;
+      padding: 32px 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.88;
+    }
+
+    /* ── Cards de seção ── */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      color: #2b6cb0;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #ebf8ff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── Listas ── */
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* ── Blocos de destaque (avisos, códigos) ── */
+    .destaque {
+      background: #ebf8ff;
+      border-left: 4px solid #2b6cb0;
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    .destaque.aviso {
+      background: #fffbeb;
+      border-left-color: #d69e2e;
+    }
+
+    .destaque.emergencia {
+      background: #fff5f5;
+      border-left-color: #c53030;
+    }
+
+    /* ── Código/path de rede ── */
+    code {
+      background: #edf2f7;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "Courier New", monospace;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+
+    /* ── Tabela de contatos ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.93rem;
+    }
+
+    th {
+      background: #f7fafc;
+      color: #4a5568;
+      font-weight: bold;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Link do sensor ── */
+    .link-sensor {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: #2c7a7b;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    /* ── Rodapé ── */
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #a0aec0;
+      margin-top: 32px;
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ══════════════════════════════════════════════════════════
+         CABEÇALHO
+    ═══════════════════════════════════════════════════════════ -->
+    <header>
+      <h1>&#127968; Bem-vindo à Casa AuxNet</h1>
+      <p>Casa de temporada gerenciada pela Equipe Píton</p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SEÇÃO 1 — Wi-Fi e guia completo
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h2>&#128246; Wi-Fi e Guia da Casa</h2>
+
+      <p>O guia completo da casa está disponível na pasta compartilhada da rede:</p>
+
+      <!-- Instrução para Windows: caminho UNC padrão do protocolo SMB.
+           O Explorador de Arquivos do Windows reconhece \\IP\pasta nativamente,
+           sem instalação de software adicional. -->
+      <div class="destaque">
+        <strong>&#x1F4BB; Windows:</strong> Abra o Explorador de Arquivos e acesse:<br>
+        <code>\\192.168.1.10\compartilhado</code><br>
+        <small>Use as credenciais fornecidas pelo proprietário.</small>
+      </div>
+
+      <!-- Instrução para iOS/Android: URI SMB padrão reconhecido pelo
+           app Arquivos do iOS (iOS 13+) e por apps como CX File Explorer
+           no Android. smb:// é o scheme URI do protocolo SMB/CIFS. -->
+      <div class="destaque">
+        <strong>&#x1F4F1; iPhone / iPad (iOS 13+):</strong><br>
+        No app <em>Arquivos</em> → toque em <em>&#8943; Mais</em> →
+        <em>Conectar ao servidor</em> → digite:<br>
+        <code>smb://192.168.1.10</code><br>
+        <small>Use as credenciais fornecidas pelo proprietário.</small>
+      </div>
+
+      <div class="destaque">
+        <strong>&#x1F4F1; Android:</strong> Use o app <em>CX File Explorer</em> ou similar.
+        Acesse via SMB o endereço: <code>192.168.1.10</code>
+      </div>
+
+      <p style="margin-top: 12px;">
+        O guia contém: senha do Wi-Fi, regras do imóvel, instruções dos
+        equipamentos, contatos de emergência e dicas da região.
+      </p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SEÇÃO 2 — Regras do imóvel
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h2>&#128221; Regras do Imóvel</h2>
+      <ol>
+        <li><strong>Check-in:</strong> a partir das 14h. <strong>Check-out:</strong> até as 12h.</li>
+        <li>Não é permitido fumar dentro do imóvel.</li>
+        <li>Animais de estimação: somente com autorização prévia do proprietário.</li>
+        <li>Festas e eventos com mais de <strong>10 pessoas</strong> precisam de autorização.</li>
+        <li>Mantenha o volume baixo após as <strong>22h</strong> (respeito aos vizinhos).</li>
+        <li>Não retire móveis, eletrodomésticos ou utensílios da casa.</li>
+        <li>Economize energia: desligue o ar-condicionado ao sair do cômodo.</li>
+        <li>Lixo: separe recicláveis (azul) de orgânicos (verde). Coleta às terças e sextas.</li>
+        <li>Em caso de dano ao imóvel, informe o proprietário imediatamente.</li>
+        <li>Devolva as chaves no check-out. Perda de chave: taxa de R$ 150,00.</li>
+      </ol>
+
+      <div class="destaque aviso">
+        &#9888;&#65039; <strong>Importante:</strong> qualquer dano causado por
+        descumprimento das regras pode ser cobrado conforme o contrato de locação.
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SEÇÃO 3 — Instruções dos equipamentos
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h2>&#128268; Equipamentos</h2>
+      <ul>
+        <li>
+          <strong>Ar-condicionado:</strong> controle remoto na gaveta da cômoda.
+          Modo recomendado: &#10052; frio, 23°C. Limpe o filtro se necessário
+          (alavanca na lateral da unidade interna).
+        </li>
+        <li>
+          <strong>TV:</strong> controle na mesa de centro. Streaming: use suas
+          credenciais pessoais — o aplicativo sairá da conta ao retirar o HDMI.
+        </li>
+        <li>
+          <strong>Chuveiro:</strong> girar para a esquerda = quente, direita = frio.
+          A temperatura leva cerca de 30 segundos para estabilizar.
+        </li>
+        <li>
+          <strong>Fogão / forno:</strong> manual disponível na gaveta da cozinha.
+          O botão de ignição fica pressionado por 3 segundos após a chama acender.
+        </li>
+        <li>
+          <strong>Máquina de lavar:</strong> sabão em pó no armário sob a pia.
+          Programa padrão: ciclo rápido (30 min). Não use amaciante — danifica
+          a bomba da máquina.
+        </li>
+        <li>
+          <strong>Roteador Wi-Fi:</strong> fica no rack da sala. Se a internet
+          cair, desligue e religue o aparelho preto (TP-Link) e aguarde 1 minuto.
+        </li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SEÇÃO 4 — Temperatura e umidade (ESP32)
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h2>&#127777; Temperatura &amp; Umidade em Tempo Real</h2>
+      <p>
+        Um sensor ambiental instalado na casa monitora temperatura e umidade
+        em tempo real. Clique no botão abaixo para acessar:
+      </p>
+      <!-- Link direto para o servidor HTTP do ESP32.
+           IP hardcoded: 192.168.1.40 é o IP fixo do ESP32 DevKit V1,
+           configurado fora da faixa DHCP para nunca mudar. -->
+      <a class="link-sensor" href="http://192.168.1.40" target="_blank">
+        &#128200; Ver temperatura e umidade (192.168.1.40)
+      </a>
+      <p style="margin-top: 12px; font-size: 0.85rem; color: #718096;">
+        O sensor atualiza automaticamente a cada 5 segundos.
+        Acesse pelo navegador de qualquer dispositivo conectado à rede AuxNet.
+      </p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SEÇÃO 5 — Contatos de emergência
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h2>&#128222; Contatos de Emergência</h2>
+
+      <div class="destaque emergencia">
+        &#128680; Em caso de emergência imediata, ligue para o serviço
+        correspondente abaixo. Para problemas com o imóvel, contate o
+        proprietário primeiro.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&#128657; Bombeiros</td>
+            <td><strong>193</strong></td>
+          </tr>
+          <tr>
+            <td>&#x1F691; SAMU (Emergências médicas)</td>
+            <td><strong>192</strong></td>
+          </tr>
+          <tr>
+            <td>&#x1F46E; Polícia Militar</td>
+            <td><strong>190</strong></td>
+          </tr>
+          <tr>
+            <td>&#x26A1; Defesa Civil</td>
+            <td><strong>199</strong></td>
+          </tr>
+          <tr>
+            <td>&#x1F3E0; Proprietário (Vinicius)</td>
+            <td><strong>[PREENCHER]</strong></td>
+          </tr>
+          <tr>
+            <td>&#x1F527; Manutenção / encanador</td>
+            <td><strong>[PREENCHER]</strong></td>
+          </tr>
+          <tr>
+            <td>&#x26A1; Eletricista</td>
+            <td><strong>[PREENCHER]</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         RODAPÉ
+    ═══════════════════════════════════════════════════════════ -->
+    <footer>
+      <p>AuxNet &mdash; Infraestrutura de rede local &mdash; Equipe Píton &middot; PUCPR 2026</p>
+      <p style="margin-top: 4px;">
+        Servidor: <code>192.168.1.10</code> &nbsp;|&nbsp;
+        Sensor: <a href="http://192.168.1.40">192.168.1.40</a>
+      </p>
+    </footer>
+
+  </div><!-- /.container -->
+</body>
+</html>

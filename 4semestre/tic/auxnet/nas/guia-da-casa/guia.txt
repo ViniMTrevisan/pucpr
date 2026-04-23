@@ -1,0 +1,198 @@
+================================================================================
+ CASA AUXNET — GUIA DOS HÓSPEDES
+================================================================================
+
+Bem-vindo(a)! Este guia contém tudo que você precisa saber para aproveitar
+sua estadia com conforto. Leia com atenção antes de começar.
+
+Para qualquer dúvida não resolvida por este guia, entre em contato com o
+proprietário pelo telefone indicado na seção de contatos.
+
+--------------------------------------------------------------------------------
+ 1. WI-FI
+--------------------------------------------------------------------------------
+
+Rede:  AuxNet
+Senha: [VER ARQUIVO wifi.txt NESTA MESMA PASTA]
+
+A rede opera em 2.4 GHz (802.11g). Dispositivos mais modernos costumam
+preferir 5 GHz, mas a casa possui apenas 2.4 GHz. A velocidade é suficiente
+para streaming de vídeo e navegação normais.
+
+Se a internet cair: desligue e religue o aparelho preto (TP-Link) no rack
+da sala. Aguarde 1 minuto antes de testar novamente.
+
+Sensor de temperatura e umidade em tempo real (do smartphone ou notebook):
+  Abra o navegador e acesse: http://192.168.1.40
+
+--------------------------------------------------------------------------------
+ 2. CHECK-IN E CHECK-OUT
+--------------------------------------------------------------------------------
+
+Check-in:   a partir das 14h00
+Check-out:  até as 12h00
+
+Antes do check-out:
+  - Retire todos os seus pertences
+  - Deixe as chaves na mesa da cozinha (ou conforme combinado)
+  - Feche janelas e portas
+  - Desligue o ar-condicionado, luzes e aparelhos elétricos
+  - Coloque o lixo nos recipientes corretos (ver seção de lixo)
+
+Perda de chave: taxa de reposição de R$ 150,00.
+
+--------------------------------------------------------------------------------
+ 3. REGRAS DO IMÓVEL
+--------------------------------------------------------------------------------
+
+ [1] Não é permitido fumar dentro do imóvel.
+     (Área externa disponível — apague bem as bitucas)
+
+ [2] Animais de estimação somente com autorização prévia do proprietário.
+
+ [3] Festas e eventos com mais de 10 pessoas precisam de autorização
+     antecipada. Festas não autorizadas resultam em rescisão imediata.
+
+ [4] Silêncio após as 22h. Respeite os vizinhos.
+
+ [5] Não retire móveis, eletrodomésticos ou utensílios da casa.
+
+ [6] Não modifique a posição de aparelhos elétricos, roteadores ou
+     equipamentos de rede.
+
+ [7] Economize energia: desligue o ar-condicionado ao sair do cômodo.
+     Deixe janelas fechadas quando o AC estiver ligado.
+
+ [8] Proibido bater portas. Feche com cuidado.
+
+ [9] Em caso de dano ao imóvel (acidental ou intencional), informe o
+     proprietário imediatamente. Danos ocultados serão cobrados com multa.
+
+[10] A casa é entregue limpa. Por favor, mantenha-a em condições razoáveis.
+     Limpeza de saída está inclusa, mas sujeira excessiva pode gerar cobrança.
+
+--------------------------------------------------------------------------------
+ 4. INSTRUÇÕES DOS EQUIPAMENTOS
+--------------------------------------------------------------------------------
+
+AR-CONDICIONADO
+  Controle remoto: gaveta da cômoda do quarto.
+  Temperatura recomendada: 23°C (modo frio).
+  Para desligar: pressione o botão POWER no controle.
+  Limpeza do filtro: se o AC estiver com cheiro ou pouco rendimento,
+    puxe a alavanca lateral da unidade interna e lave a grade com água.
+
+TV
+  Controle remoto: mesa de centro da sala.
+  Para usar streaming (Netflix, YouTube etc.): use suas próprias credenciais.
+  Recomendado: deslogar das suas contas antes do check-out.
+  Conexão HDMI disponível para notebook.
+
+CHUVEIRO
+  Temperatura: girar o registro para a esquerda = mais quente,
+                                  para a direita = mais frio.
+  A temperatura leva ~30 segundos para estabilizar após ajuste.
+  Não exceda a temperatura máxima — risco de queimadura.
+
+FOGÃO / FORNO
+  Manual completo: gaveta da cozinha.
+  Para acionar a ignição: girar o botão do queimador + pressionar por 3s
+  após a chama aparecer (o piezoelétrico precisa aquecer o termopar).
+  Se o gás acabar: botijão reserva no armário da área de serviço.
+  Substitua e informe o proprietário para ressarcimento.
+
+MÁQUINA DE LAVAR
+  Sabão em pó: armário sob a pia da área de serviço.
+  Programa padrão: ciclo rápido (30 minutos), temperatura fria.
+  NÃO use amaciante — danifica a bomba da máquina.
+  Capacidade: até 7 kg por ciclo.
+
+GELADEIRA / FREEZER
+  Temperatura já ajustada. Não altere os controles internos.
+  Congele apenas em recipientes fechados (evita odores).
+
+MICRO-ONDAS
+  Potência máxima: 800W. Não coloque metal no interior.
+  Manual: porta do micro-ondas (face interna).
+
+ROTEADOR (rack da sala)
+  Aparelho PRETO (TP-Link): gateway de internet. Reiniciar se a internet cair.
+  Aparelho CINZA (D-Link): ponto de acesso Wi-Fi. Raramente precisa ser
+  reiniciado — somente se a rede AuxNet sumir da lista de redes disponíveis.
+
+--------------------------------------------------------------------------------
+ 5. LIXO E RECICLAGEM
+--------------------------------------------------------------------------------
+
+Separação de lixo obrigatória:
+
+  AZUL (lixeira da cozinha):   Recicláveis — plástico, vidro, metal, papel
+  VERDE (lixeira da cozinha):  Orgânicos — restos de comida, cascas, papel sujo
+
+Coleta na rua: terças e sextas-feiras, às 6h da manhã.
+Deixe o lixo na calçada na noite anterior (após as 18h).
+
+O lixo eletrônico (pilhas, embalagens de spray) vai no PONTO LIMPA
+mais próximo — não jogar no lixo comum.
+
+--------------------------------------------------------------------------------
+ 6. DICAS DA REGIÃO
+--------------------------------------------------------------------------------
+
+Supermercados próximos:
+  - [PREENCHER: nome e endereço]
+  - [PREENCHER: nome e endereço]
+
+Farmácias 24h:
+  - [PREENCHER: nome, endereço e telefone]
+
+Padaria / café da manhã:
+  - [PREENCHER: nome e endereço]
+
+Restaurantes recomendados pelo proprietário:
+  - [PREENCHER]
+  - [PREENCHER]
+
+Atrações locais:
+  - [PREENCHER]
+
+Transporte:
+  - Aplicativos de transporte (Uber, 99) funcionam na região.
+  - Ponto de ônibus: [PREENCHER]
+
+--------------------------------------------------------------------------------
+ 7. CONTATOS DE EMERGÊNCIA
+--------------------------------------------------------------------------------
+
+Serviço                          Telefone
+────────────────────────────────────────────
+Bombeiros                        193
+SAMU (emergências médicas)       192
+Polícia Militar                  190
+Defesa Civil                     199
+Proprietário (Vinicius)          [PREENCHER]
+Manutenção / encanador           [PREENCHER]
+Eletricista                      [PREENCHER]
+Vizinho de confiança             [PREENCHER]
+
+Em emergências que ofereçam risco à vida, ligue para os serviços públicos
+ANTES de tentar contatar o proprietário.
+
+--------------------------------------------------------------------------------
+ 8. REDE LOCAL (informações técnicas)
+--------------------------------------------------------------------------------
+
+Site da casa (navegador, na rede AuxNet):
+  http://192.168.1.10
+
+Sensor de temperatura e umidade (navegador, na rede AuxNet):
+  http://192.168.1.40
+
+Pasta de arquivos compartilhados (este guia):
+  Windows:  \\192.168.1.10\compartilhado
+  iPhone:   smb://192.168.1.10  (app Arquivos → Conectar ao servidor)
+
+================================================================================
+ Boas férias! Qualquer problema, estamos à disposição.
+ — Proprietário AuxNet
+================================================================================

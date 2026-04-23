@@ -1,0 +1,163 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "auth.py",
+      "file_type": "code",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L1",
+      "id": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "community": 0,
+      "norm_label": "auth.py"
+    },
+    {
+      "label": "format_time()",
+      "file_type": "code",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L14",
+      "id": "auth_format_time",
+      "community": 0,
+      "norm_label": "format_time()"
+    },
+    {
+      "label": "get_remaining()",
+      "file_type": "code",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L21",
+      "id": "auth_get_remaining",
+      "community": 0,
+      "norm_label": "get_remaining()"
+    },
+    {
+      "label": "authenticate()",
+      "file_type": "code",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L29",
+      "id": "auth_authenticate",
+      "community": 0,
+      "norm_label": "authenticate()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L61",
+      "id": "auth_main",
+      "community": 0,
+      "norm_label": "main()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "_tgt": "auth_format_time",
+      "source": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "target": "auth_format_time",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_src": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "_tgt": "auth_get_remaining",
+      "source": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "target": "auth_get_remaining",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "_tgt": "auth_authenticate",
+      "source": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "target": "auth_authenticate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_src": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "_tgt": "auth_main",
+      "source": "users_vinitrevisan_documents_pucpr_4semestre_seg_informacao_ativ_pratica_1_auth_py",
+      "target": "auth_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_src": "auth_authenticate",
+      "_tgt": "auth_format_time",
+      "source": "auth_format_time",
+      "target": "auth_authenticate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_src": "auth_main",
+      "_tgt": "auth_format_time",
+      "source": "auth_format_time",
+      "target": "auth_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "auth_authenticate",
+      "_tgt": "auth_get_remaining",
+      "source": "auth_get_remaining",
+      "target": "auth_authenticate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_src": "auth_main",
+      "_tgt": "auth_get_remaining",
+      "source": "auth_get_remaining",
+      "target": "auth_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/ativ-pratica-1/auth.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_src": "auth_main",
+      "_tgt": "auth_authenticate",
+      "source": "auth_authenticate",
+      "target": "auth_main",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

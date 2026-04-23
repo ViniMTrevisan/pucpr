@@ -1,0 +1,87 @@
+================================================================================
+ CASA AUXNET — INSTRUÇÕES DE CONEXÃO WI-FI
+================================================================================
+
+Nome da rede (SSID):  AuxNet
+Senha:                [PREENCHER ANTES DE DISPONIBILIZAR AOS HÓSPEDES]
+Frequência:           2.4 GHz
+Segurança:            WPA2
+
+ATENÇÃO AO PROPRIETÁRIO:
+  Substitua "[PREENCHER...]" acima pela senha real antes do check-in.
+  Não compartilhe este arquivo com a senha em branco.
+
+--------------------------------------------------------------------------------
+ COMO CONECTAR — PASSO A PASSO
+--------------------------------------------------------------------------------
+
+iPHONE / iPAD (iOS)
+  1. Abra Ajustes
+  2. Toque em Wi-Fi
+  3. Selecione "AuxNet" na lista de redes
+  4. Digite a senha e toque em Unir
+  5. Aguarde o ícone de Wi-Fi aparecer na barra de status
+
+ANDROID
+  1. Abra Configurações
+  2. Toque em Conexões → Wi-Fi (ou Rede e Internet → Wi-Fi)
+  3. Selecione "AuxNet"
+  4. Digite a senha e toque em Conectar
+
+WINDOWS 11
+  1. Clique no ícone de Wi-Fi na barra de tarefas (canto direito)
+  2. Clique em "AuxNet"
+  3. Clique em Conectar
+  4. Digite a senha e pressione Enter
+
+macOS
+  1. Clique no ícone de Wi-Fi na barra de menu
+  2. Selecione "AuxNet"
+  3. Digite a senha e clique em Unir
+
+SMART TV / CONSOLE
+  1. Vá em Configurações → Rede → Wi-Fi
+  2. Selecione "AuxNet"
+  3. Use o controle ou teclado virtual para digitar a senha
+  Obs: dispositivos mais antigos com Wi-Fi 5 GHz apenas não conseguem
+  conectar — a rede AuxNet opera somente em 2.4 GHz.
+
+--------------------------------------------------------------------------------
+ PROBLEMAS DE CONEXÃO
+--------------------------------------------------------------------------------
+
+Rede não aparece na lista:
+  → Certifique-se de que seu dispositivo tem Wi-Fi ativo.
+  → A rede opera em 2.4 GHz. Dispositivos configurados para 5 GHz apenas
+    não verão a rede. Habilite 2.4 GHz nas configurações de Wi-Fi.
+  → Se ainda não aparecer: desligue e religue o aparelho cinza (D-Link)
+    no rack da sala e aguarde 1 minuto.
+
+Senha incorreta:
+  → Digite com atenção: a senha diferencia maiúsculas de minúsculas.
+  → Verifique se não há espaços no início ou no fim.
+
+Conectou mas sem internet:
+  → Desligue e religue o aparelho PRETO (TP-Link) no rack da sala.
+  → Aguarde 1 minuto e verifique novamente.
+  → Se persistir, contate o proprietário.
+
+--------------------------------------------------------------------------------
+ RECURSOS DA REDE LOCAL
+--------------------------------------------------------------------------------
+
+Com a rede AuxNet conectada, você pode acessar:
+
+  Sensor de temperatura e umidade da casa:
+    → Abra o navegador e acesse: http://192.168.1.40
+    → A página atualiza automaticamente a cada 5 segundos.
+
+  Site da casa com guia e informações:
+    → Abra o navegador e acesse: http://192.168.1.10
+
+  Esta pasta de arquivos (no iPhone via app Arquivos):
+    → app Arquivos → ⋯ Mais → Conectar ao servidor
+    → Digite: smb://192.168.1.10
+    → Usuário: auxnet  |  Senha: [fornecida pelo proprietário]
+
+================================================================================

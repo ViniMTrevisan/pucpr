@@ -1,0 +1,25 @@
+public class ProdutoPedido {
+    private Produto produto;
+    private int quantidade;
+
+    public ProdutoPedido(Produto produto, int quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public double calcularSubtotal() {
+        return produto.getPreco() * quantidade;
+    }
+
+    public String gerarResumo() {
+        return "Produto: " + produto.getNome() + " | Quantidade: " + quantidade;
+    }
+}
