@@ -1,0 +1,9 @@
+=== Iteracao 4 ===
+RSA-1024 |     73.025 ms | cifra: 128 bytes
+RSA-2048 |    265.634 ms | cifra: 256 bytes
+RSA-4096 |   2541.969 ms | cifra: 512 bytes
+RSA-8192 |  24138.270 ms | cifra: 1024 bytes
+AES-128  |      4.565 ms | cifra: 64 bytes
+AES-256  |      0.017 ms | cifra: 64 bytes
+
+Resultado registrado em: /Users/vinitrevisan/Documents/pucpr/4semestre/seg-informacao/analise-criptografico/resultados.csv

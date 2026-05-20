@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2026-06-07" view-index="0" gantt-divider-location="449" resource-divider-location="300" version="3.3.3316" locale="pt_BR">
+    <description/>
+    <view zooming-state="default:5" id="gantt-chart">
+        <field id="tpd3" name="Nome" width="250" order="0"/>
+        <field id="tpd4" name="Data inicial" width="99" order="1"/>
+        <field id="tpd5" name="Data final" width="99" order="2"/>
+        <field id="tpd15" name="Notas" width="20" order="3"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nome" width="198" order="0"/>
+        <field id="1" name="Função" width="81" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="3193806642f34145a094a43d55c237e4" name="Elaborar Termo de Abertura do Projeto (TAP)" meeting="false" start="2026-03-04" duration="3" complete="0" expand="true">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+            <depend id="2" type="2" difference="0" hardness="Strong"/>
+            <depend id="14" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="1" uid="697a4624b6e44fc4b6e8ed6210d96bc9" name="Apresentar e obter aprovação da patrocinadora" meeting="false" start="2026-03-09" duration="1" complete="0" expand="true">
+            <depend id="3" type="2" difference="0" hardness="Strong"/>
+            <depend id="6" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="2" uid="952116d2b4de42449a70484a9cde050a" name="Designar formalmente o gerente do projeto" meeting="false" start="2026-03-09" duration="1" complete="0" expand="true"/>
+        <task id="3" uid="6e5762f15b5c4c79a4b7f3111a031556" name="Construir a EAP (fases e subentregas)" meeting="false" start="2026-03-10" duration="3" complete="0" expand="true">
+            <depend id="4" type="2" difference="0" hardness="Strong"/>
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="4" uid="9f47a6eed10748c3acee4102e9479c75" name="Elaborar o Dicionário da EAP" meeting="false" start="2026-03-13" duration="1" complete="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" uid="05d6647d05ad4bfb91c05267d7dd018d" name="Definir e documentar processo de controle de mudanças" meeting="false" start="2026-03-16" duration="1" complete="0" expand="true"/>
+        <task id="6" uid="66d8c875190448c6ae0e9b06783766e9" name="Identificar e classificar os stakeholders" meeting="false" start="2026-03-13" duration="1" complete="0" expand="true">
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" uid="b71e9d487dc342d28e33fda13cdc3176" name="Elaborar mapa e registro de stakeholders" meeting="false" start="2026-03-16" duration="1" complete="0" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <depend id="9" type="2" difference="0" hardness="Rubber"/>
+            <depend id="18" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="8" uid="674735c9324741c1906de265e25746c8" name="Definir estratégia de engajamento e plano de comunicação" meeting="false" start="2026-03-17" duration="1" complete="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Rubber"/>
+            <depend id="13" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="9" uid="f1d5e691370f43ccbf1dfb4836717eed" name="Identificar e descrever riscos" meeting="false" start="2026-03-18" duration="1" complete="0" expand="true">
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+            <depend id="11" type="2" difference="0" hardness="Rubber"/>
+            <depend id="14" type="2" difference="0" hardness="Rubber"/>
+            <depend id="18" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="10" uid="8ecf50cae65247a490b8491118a17d10" name="Analisar probabilidade e impacto (matriz P×I)" meeting="false" start="2026-03-19" duration="1" complete="0" expand="true">
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" uid="b0c2032b154f42ec9ab5fc7da0e9172b" name="Definir planos de resposta e contingências" meeting="false" start="2026-03-20" duration="3" complete="0" expand="true"/>
+        <task id="12" uid="9764bd1a75934787ab33335c9e2b043a" name="Realizar reuniões semanais e registrar atas" meeting="false" start="2026-03-25" duration="71" complete="0" expand="true"/>
+        <task id="13" uid="1ae93dc772644debb880803480a0bb6d" name="Emitir status reports periódicos" meeting="false" start="2026-03-25" duration="71" complete="0" expand="true"/>
+        <task id="14" uid="efddef48fbdc456a9a11b3a3d372f3ee" name="Monitorar cronograma, custos e riscos" meeting="false" start="2026-03-25" duration="70" complete="0" expand="true"/>
+        <task id="15" uid="27992ff1fd4a41eab7811d3373b2456b" name="Elaborar relatório final de desempenho" meeting="false" start="2026-06-25" duration="2" complete="0" expand="true"/>
+        <task id="16" uid="cd5547f373c54b2f8d2da4fb430854db" name="Consolidar lições aprendidas com a equipe" meeting="false" start="2026-06-29" duration="1" complete="0" expand="true"/>
+        <task id="17" uid="d70016b1044740beb07b2b7b2868fffe" name="Obter aceite formal da patrocinadora" meeting="false" start="2026-07-01" duration="1" complete="0" expand="true"/>
+        <task id="18" uid="c25a9d2755b94506b091e122f4b2ffdb" name="Levantar e documentar requisitos com stakeholders" meeting="false" start="2026-03-25" duration="5" complete="0" expand="true">
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+            <depend id="20" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="19" uid="257561a7e6e2442d8a37ab4ad4112955" name="Priorizar requisitos" meeting="false" start="2026-04-01" duration="2" complete="0" expand="true">
+            <depend id="20" type="2" difference="0" hardness="Strong"/>
+            <depend id="21" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="20" uid="c7336fde87e14e4d92a0830eeba6d32c" name="Definir critérios de aceite por requisito" meeting="false" start="2026-04-03" duration="2" complete="0" expand="true">
+            <depend id="21" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="21" uid="7690e7548ace4a38991bbea76e28abeb" name="Definir arquitetura dos 4 módulos do CLI" meeting="false" start="2026-04-07" duration="1" complete="0" expand="true">
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+            <depend id="24" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="22" uid="0050fa24bc064992b8fd5dd563008c6f" name="Especificar contratos de interface entre módulos" meeting="false" start="2026-04-08" duration="1" complete="0" expand="true">
+            <depend id="23" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="23" uid="1d93b88b26cd481c8f1bd6615fcec514" name="Validar e decidir serviços externos" meeting="false" start="2026-04-09" duration="1" complete="0" expand="true">
+            <depend id="24" type="2" difference="0" hardness="Rubber"/>
+            <depend id="26" type="2" difference="0" hardness="Strong"/>
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="24" uid="21df92f3b43c4e55bc71f58a8e04464a" name="Especificar templates por stack (6 linguagens)" meeting="false" start="2026-04-10" duration="1" complete="0" expand="true">
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
+            <depend id="36" type="2" difference="0" hardness="Rubber"/>
+            <depend id="37" type="2" difference="0" hardness="Rubber"/>
+            <depend id="38" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="25" uid="42b02d731d2943a48f279d3803c49849" name="Especificar templates por arquitetura" meeting="false" start="2026-04-13" duration="1" complete="0" expand="true">
+            <depend id="40" type="2" difference="0" hardness="Rubber"/>
+            <depend id="41" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="26" uid="b830f645444840d392469df5af447a75" name="Especificar templates DevOps" meeting="false" start="2026-04-10" duration="1" complete="0" expand="true">
+            <depend id="30" type="2" difference="0" hardness="Rubber"/>
+            <depend id="42" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="27" uid="a126d3d43ba94dabab5ce60be5fb7ad3" name="Desenhar fluxo interativo com menus visuais" meeting="false" start="2026-04-10" duration="1" complete="0" expand="true">
+            <depend id="28" type="2" difference="0" hardness="Strong"/>
+            <depend id="29" type="2" difference="0" hardness="Rubber"/>
+            <depend id="32" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="28" uid="178cd8fa26df4d6eab8b10dfd28330b2" name="Especificar flags não-interativas" meeting="false" start="2026-04-13" duration="1" complete="0" expand="true">
+            <depend id="30" type="2" difference="0" hardness="Rubber"/>
+            <depend id="33" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="29" uid="dcb0bc0cc84547748dd3208660e85461" name="Definir formato do painel de next steps pós geração" meeting="false" start="2026-04-13" duration="1" complete="0" expand="true">
+            <depend id="30" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="30" uid="09164ffcafe24d01aa8b37c760971462" name="Revisar escopo técnico com toda a equipe" meeting="false" start="2026-04-14" duration="1" complete="0" expand="true">
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="31" uid="27f6e94aa1714d7b89c99ab33e371a24" name="Registrar baseline do escopo e comunicar à equipe" meeting="false" start="2026-04-15" duration="1" complete="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="32" uid="5b892e39b2ff471ba95cd060a440cfeb" name="Implementar interface interativa com menus" meeting="false" start="2026-04-16" duration="4" complete="0" expand="true"/>
+        <task id="33" uid="5359512a757f4138a776f43b79163d09" name="Implementar flags não-interativas" meeting="false" start="2026-04-16" duration="4" complete="0" expand="true">
+            <depend id="34" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="34" uid="36b183dc269a443f8857a0a8bd2b7a35" name="Implementar kybernus doctor - verificação do ambiente" meeting="false" start="2026-04-22" duration="2" complete="0" expand="true">
+            <depend id="35" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="35" uid="b5875c3d595c4f238a695dd304042cde" name="Implementar geração de estrutura por stack + arquitetura" meeting="false" start="2026-04-24" duration="3" complete="0" expand="true"/>
+        <task id="36" uid="c95a279f6d944cc8817ef493dd09c226" name="Implementar templates Node.js+Express e NestJS" meeting="false" start="2026-04-29" duration="1" complete="0" expand="true">
+            <depend id="39" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="37" uid="42b425e88129451696f8f95e7ed559a7" name="Implementar templates FastAPI e Spring Boot" meeting="false" start="2026-04-29" duration="1" complete="0" expand="true"/>
+        <task id="38" uid="5dcad340e6e3448d8c1da5cd38524cdf" name="Implementar templates Next.js e n8n" meeting="false" start="2026-04-29" duration="1" complete="0" expand="true"/>
+        <task id="39" uid="6498535c262240bcbed30d585f65216a" name="Gerar arquivos base: .env, ESLint, Prettier" meeting="false" start="2026-04-30" duration="1" complete="0" expand="true">
+            <depend id="43" type="2" difference="0" hardness="Rubber"/>
+            <depend id="53" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="40" uid="42b71bfb283e48dcb972530d942eda3b" name="Implementar geração de Docker + GitHub Actions + Terraform" meeting="false" start="2026-05-01" duration="2" complete="0" expand="true">
+            <depend id="41" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="41" uid="89d2fa32c63a470fbe80d439e7ae4a3e" name="Implementar kybernus deploy" meeting="false" start="2026-05-05" duration="1" complete="0" expand="true">
+            <depend id="42" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="42" uid="9bc59f11c9b849e181adac1b14a9d6b5" name="Implementar suporte a template customizado via GitHub" meeting="false" start="2026-05-06" duration="1" complete="0" expand="true"/>
+        <task id="43" uid="2df77432d17d41b582dbd55cf04bc67c" name="Implementar kybernus add swagger, redis" meeting="false" start="2026-05-07" duration="2" complete="0" expand="true">
+            <depend id="44" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="44" uid="dc6d5fbf13ea434da980f88412ca9780" name="Implementar kybernus add websocket, husky" meeting="false" start="2026-05-11" duration="1" complete="0" expand="true">
+            <depend id="45" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="45" uid="3426d94ecc1247a89e9d3853d84adc86" name="Implementar kybernus auth - boilerplate JWT" meeting="false" start="2026-05-12" duration="1" complete="0" expand="true">
+            <depend id="46" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="46" uid="3cf9d3efd31048fca7f1b96f2295bc59" name="Garantir compatibilidade com projetos externos ao Kybernus" meeting="false" start="2026-05-13" duration="1" complete="0" expand="true">
+            <depend id="53" type="2" difference="0" hardness="Rubber"/>
+            <depend id="55" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="47" uid="59f1943052254e41a6536b9260c12ffc" name="Integrar API Google Gemini ao módulo" meeting="false" start="2026-05-01" duration="3" complete="0" expand="true">
+            <depend id="48" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="48" uid="66ac2cadf71b403997459beebb3cbffc" name="Implementar geração automática de README e guias" meeting="false" start="2026-05-06" duration="3" complete="0" expand="true">
+            <depend id="49" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="49" uid="7b51f0738f0e49f692eb7e75922176df" name="Implementar tratamento de falha quando API indisponível" meeting="false" start="2026-05-11" duration="1" complete="0" expand="true">
+            <depend id="50" type="2" difference="0" hardness="Strong"/>
+            <depend id="53" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="50" uid="4c80674977b34fc2901862257df862e5" name="Implementar coleta anônima via PostHog" meeting="false" start="2026-05-12" duration="1" complete="0" expand="true">
+            <depend id="51" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="51" uid="cdaeca4016164db5ba43b3436b4e5308" name="Implementar notificação no 1º uso + opt-out" meeting="false" start="2026-05-13" duration="1" complete="0" expand="true">
+            <depend id="52" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="52" uid="e43b3004b77c40e1bdf8df77a2288fec" name="Elaborar e implementar política de privacidade (LGPD)" meeting="false" start="2026-05-14" duration="3" complete="0" expand="true">
+            <depend id="53" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="53" uid="903d40874a4248d3a36039bef7942144" name="Publicar ferramenta no npm" meeting="false" start="2026-05-19" duration="3" complete="0" expand="true">
+            <depend id="54" type="2" difference="0" hardness="Strong"/>
+            <depend id="55" type="2" difference="0" hardness="Rubber"/>
+            <depend id="56" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="54" uid="69d0594f8e15495dbb08bb7a724756f3" name="Validar suporte Win/macOS/Linux" meeting="false" start="2026-05-22" duration="3" complete="0" expand="true">
+            <depend id="56" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="55" uid="142f0675023f44578451812e38c73507" name="Configurar CI/CD do próprio projeto Kybernus" meeting="false" start="2026-05-22" duration="3" complete="0" expand="true">
+            <depend id="56" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="56" uid="4a5fa6f47922415dba0668580812a143" name="Escrever testes unitários por módulo" meeting="false" start="2026-05-27" duration="1" complete="0" expand="true">
+            <depend id="57" type="2" difference="0" hardness="Strong"/>
+            <depend id="58" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="57" uid="9942ffd44a474fdcb1f4d75084e0ef0d" name="Escrever testes de integração por módulo" meeting="false" start="2026-05-28" duration="1" complete="0" expand="true"/>
+        <task id="58" uid="cfe3d8cefcb84b57af6510626c1975b9" name="Validar sintaxe de arquivos gerados para todas as combinações" meeting="false" start="2026-05-28" duration="1" complete="0" expand="true">
+            <depend id="59" type="2" difference="0" hardness="Rubber"/>
+            <depend id="64" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="59" uid="03e56c9bf856432297865f4189af7e8a" name="Recrutar 5 desenvolvedores externos para testes" meeting="false" start="2026-05-29" duration="1" complete="0" expand="true">
+            <depend id="60" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="60" uid="ed298cb776014dd18d4aeb5e651b3527" name="Conduzir sessões de instalação e geração sem auxílio" meeting="false" start="2026-06-01" duration="1" complete="0" expand="true">
+            <depend id="61" type="2" difference="0" hardness="Strong"/>
+            <depend id="67" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="61" uid="f1e798d09d684906877a60b91ea00156" name="Registrar resultados e validar meta de 80% de sucesso" meeting="false" start="2026-06-02" duration="1" complete="0" expand="true">
+            <depend id="62" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="62" uid="6e0ae6ea5c154ba180d8c3a0cfd7c725" name="Verificar checklist formal de critérios de aceite do TAP" meeting="false" start="2026-06-03" duration="3" complete="0" expand="true">
+            <depend id="63" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="63" uid="49de22cf7e5b4feab335295766960d1e" name="Elaborar relatório de validação interna" meeting="false" start="2026-06-08" duration="3" complete="0" expand="true">
+            <depend id="15" type="2" difference="0" hardness="Rubber"/>
+            <depend id="16" type="2" difference="0" hardness="Rubber"/>
+            <depend id="73" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="64" uid="dc69d280c53e4b5ea6a061a00f70c8fd" name="Elaborar README completo do repositório modelo GitHub" meeting="false" start="2026-06-02" duration="3" complete="0" expand="true">
+            <depend id="65" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="65" uid="091ad9cefaab4a90991a2d982ece329d" name="Elaborar guia de contribuicçaão para comunicada open-source" meeting="false" start="2026-06-05" duration="1" complete="0" expand="true">
+            <depend id="66" type="2" difference="0" hardness="Rubber"/>
+            <depend id="71" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="66" uid="27740b6dabe743878756d4c2800d729f" name="Documentar módulos internos" meeting="false" start="2026-06-08" duration="1" complete="0" expand="true">
+            <depend id="69" type="2" difference="0" hardness="Rubber"/>
+            <depend id="71" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="67" uid="5c2602324b6e483b9cfe1c843f53f8f9" name="Escrever guia de instalação e uso" meeting="false" start="2026-06-09" duration="1" complete="0" expand="true">
+            <depend id="68" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="68" uid="3779e9658c40439b94dee670183a6c38" name="Elaborar FAQ e troubleshooting" meeting="false" start="2026-06-10" duration="1" complete="0" expand="true">
+            <depend id="69" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="69" uid="6fd0d22fa91d48798e1727275b0ac5a0" name="Desenvolver conteúdo e layout da landing page" meeting="false" start="2026-06-11" duration="1" complete="0" expand="true">
+            <depend id="70" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="70" uid="aefac444c84147e8af2f4b33667896c1" name="Publicar landing page e validar links" meeting="false" start="2026-06-12" duration="1" complete="0" expand="true"/>
+        <task id="71" uid="11c86f49006646599292833e77fe5d2f" name="Configurar repositório público com README e CONTRIBUTING" meeting="false" start="2026-06-09" duration="1" complete="0" expand="true">
+            <depend id="72" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="72" uid="1785ba7d9e8143eeabf6ce488323ea0e" name="Criar templates de issues e pull requests" meeting="false" start="2026-06-10" duration="1" complete="0" expand="true"/>
+        <task id="73" uid="7a1e848bca024718b3ef079cddac8fde" name="Definir plano de canais" meeting="false" start="2026-06-12" duration="3" complete="0" expand="true">
+            <depend id="74" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="74" uid="7ed08bd5656649e185bbc1c4e2142908" name="Produzir conteúdo para divulgação" meeting="false" start="2026-06-17" duration="3" complete="0" expand="true">
+            <depend id="75" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="75" uid="341bfe6f2ba74d7aacc32f99be12ad1f" name="Redigir comunicado oficial de lançamento" meeting="false" start="2026-06-22" duration="1" complete="0" expand="true">
+            <depend id="76" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="76" uid="5716cd2e41fc4bcabaf97bf169363251" name="Executar deploy final e publicar versão npm" meeting="false" start="2026-06-23" duration="1" complete="0" expand="true">
+            <depend id="77" type="2" difference="0" hardness="Strong"/>
+            <depend id="78" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="77" uid="4c6c16ab9087494c93d3132237977734" name="Executar campanha de divulgação nos canais definidos" meeting="false" start="2026-06-24" duration="3" complete="0" expand="true"/>
+        <task id="78" uid="504e60acf5094232bbe4e0c293ff2552" name="Ativar monitoramento via PostHog pós-lançamento" meeting="false" start="2026-06-24" duration="1" complete="0" expand="true">
+            <depend id="79" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="79" uid="ab7356714caf4b18bfee7f934de71328" name="Coletar feedback e métricas de adoção iniciais" meeting="false" start="2026-06-25" duration="3" complete="0" expand="true">
+            <depend id="80" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="80" uid="4c1be5cbaa54448f810f41ca91b91c57" name="Apresentar relatório final à patrocinadora" meeting="false" start="2026-07-01" duration="1" complete="0" expand="true">
+            <depend id="17" type="3" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="81" uid="72410122afae4cfd8e9c84c79e90e52c" name="Obter aceite formal e encerrar projeto" meeting="false" start="2026-07-01" duration="1" complete="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Gerente de Projetos" function="Default:1" contacts="" phone=""/>
+        <resource id="1" name="Product Manager" function="SoftwareDevelopment:8" contacts="" phone=""/>
+        <resource id="2" name="Desenvolvedor #1" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="3" name="Desenvolvedor #2" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="4" name="Desenvolvedor #3" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="5" name="Marketing" function="SoftwareDevelopment:8" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="2" resource-id="0" function="Default:1" responsible="true" load="50.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:1" responsible="true" load="50.0"/>
+        <allocation task-id="4" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="5" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="14" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="15" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="16" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="17" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:1" responsible="false" load="20.0"/>
+        <allocation task-id="20" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="30" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="31" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="52" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="59" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="60" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="61" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="62" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="63" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="75" resource-id="0" function="Default:1" responsible="false" load="40.0"/>
+        <allocation task-id="79" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="80" resource-id="0" function="Default:1" responsible="true" load="40.0"/>
+        <allocation task-id="81" resource-id="0" function="Default:1" responsible="true" load="20.0"/>
+        <allocation task-id="3" resource-id="1" function="SoftwareDevelopment:8" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="1" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="1" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="1" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="1" function="SoftwareDevelopment:8" responsible="false" load="100.0"/>
+        <allocation task-id="23" resource-id="1" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="29" resource-id="1" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="30" resource-id="1" function="SoftwareDevelopment:8" responsible="false" load="100.0"/>
+        <allocation task-id="66" resource-id="1" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="67" resource-id="1" function="SoftwareDevelopment:8" responsible="false" load="100.0"/>
+        <allocation task-id="21" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="22" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="24" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="32" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="39" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="45" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="49" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="53" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="54" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="56" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="57" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="60" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="66" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="68" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="69" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="70" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="76" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="22" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="23" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="26" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="29" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="33" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="35" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="37" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="40" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="44" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="46" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="48" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="55" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="56" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="58" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="60" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="65" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="68" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="71" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="78" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="22" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="23" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="27" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="28" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="38" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="41" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="42" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="50" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="51" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="52" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="56" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="57" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="60" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="64" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="67" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="72" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="69" resource-id="5" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="73" resource-id="5" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="75" resource-id="5" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="77" resource-id="5" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
