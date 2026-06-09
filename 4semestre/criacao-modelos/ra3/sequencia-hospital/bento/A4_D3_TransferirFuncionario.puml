@@ -1,0 +1,57 @@
+@startuml A4_D3_TransferirFuncionario
+title Diagrama de Sequência — Transferir Funcionário entre Departamentos
+
+actor Administrador as adm
+participant "Departamento\nOrigem\n«intermediária»" as depOrig
+participant "Departamento\nDestino\n«intermediária»" as depDest
+participant "Funcionário\n[objeto]" as func
+participant "Hospital\n[objeto]" as hosp
+
+adm -> hosp : criarDepartamento(dadosDep) : Departamento
+activate hosp
+hosp --> adm : departamentoDestino
+deactivate hosp
+
+adm -> depOrig : getChefe() : Funcionario
+activate depOrig
+depOrig --> adm : chefeAtual
+deactivate depOrig
+
+adm -> depOrig : transferirFunc(funcionario) : void
+activate depOrig
+
+depOrig -> func : getDados() : String
+activate func
+func --> depOrig : dados
+deactivate func
+
+depOrig -> depOrig : listarEquipe() : List
+activate depOrig
+depOrig --> depOrig : equipeAtualizada
+deactivate depOrig
+
+depOrig --> adm : ok
+deactivate depOrig
+
+adm -> depDest : alocarFuncionario(funcionario) : void
+activate depDest
+
+depDest -> func : calcularSalario() : double
+activate func
+func --> depDest : novoSalario
+deactivate func
+
+depDest -> depDest : listarEquipe() : List
+activate depDest
+depDest --> depDest : novaEquipe
+deactivate depDest
+
+depDest --> adm : funcionarioAlocado
+deactivate depDest
+
+note over adm
+  Referência cruzada:
+  escala atualizada em A4_D2_GerarRelatorioEscala
+end note
+
+@enduml

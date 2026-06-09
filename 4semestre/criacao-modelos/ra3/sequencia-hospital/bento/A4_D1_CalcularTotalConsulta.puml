@@ -1,0 +1,52 @@
+@startuml A4_D1_CalcularTotalConsulta
+title Diagrama de Sequência — Calcular Total da Consulta e Emitir Recibo
+
+actor Paciente as pacActor
+participant "Sistema" as sis
+participant "Consulta\n«Pagável»" as con
+participant "Pagável\n«interface»" as pag
+
+note over pacActor, pag
+  Pré-condição: consulta realizada (ref A1_D2_RealizarConsulta)
+end note
+
+pacActor -> sis : solicitarFatura(consulta)
+activate sis
+
+sis -> con : calcularTotal() : double
+activate con
+con --> sis : totalBruto
+deactivate con
+
+sis -> con : aplicarDesconto(paciente) : void
+activate con
+
+opt [paciente tem convênio]
+    con -> con : getConvenio() : String
+    activate con
+    con --> con : nomeConvenio
+    deactivate con
+end
+
+con --> sis : descontoAplicado
+deactivate con
+
+sis -> con : gerarFatura() : Fatura
+activate con
+con --> sis : fatura1
+deactivate con
+
+sis -> pag : emitirRecibo() : void
+activate pag
+pag --> sis : recibo1
+deactivate pag
+
+sis -> pag : getValorTotal() : double
+activate pag
+pag --> sis : valorFinal
+deactivate pag
+
+sis --> pacActor : exibirFatura(fatura1, valorFinal)
+deactivate sis
+
+@enduml

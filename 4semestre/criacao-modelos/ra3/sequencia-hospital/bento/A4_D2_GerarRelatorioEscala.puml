@@ -1,0 +1,65 @@
+@startuml A4_D2_GerarRelatorioEscala
+title Diagrama de Sequência — Gerar Relatório do Hospital e Escala de Funcionários
+
+actor Administrador as adm
+participant "Hospital\n[objeto]" as hosp
+participant "Departamento\n«intermediária»" as dep
+participant "Funcionário\n[objeto]" as func
+participant "Enfermeiro\n[objeto]" as enf
+
+adm -> hosp : gerarRelatorio() : String
+activate hosp
+
+hosp -> hosp : getCnpj() : String
+activate hosp
+hosp --> hosp : cnpj
+deactivate hosp
+
+loop [para cada departamento]
+    hosp -> dep : getCodigo() : String
+    activate dep
+    dep --> hosp : codigo
+    deactivate dep
+
+    hosp -> dep : getNome() : String
+    activate dep
+    dep --> hosp : nomeDep
+    deactivate dep
+
+    hosp -> dep : listarEquipe() : List
+    activate dep
+    dep --> hosp : equipe
+    deactivate dep
+
+    hosp -> dep : getChefe() : Funcionario
+    activate dep
+    dep -> func : getDados() : String
+    activate func
+    func --> dep : dadosChefe
+    deactivate func
+    dep --> hosp : chefe
+    deactivate dep
+end
+
+hosp -> hosp : gerarEscala() : void
+activate hosp
+
+loop [para cada enfermeiro]
+    hosp -> enf : getEscala() : List
+    activate enf
+    enf --> hosp : escala
+    deactivate enf
+
+    hosp -> enf : getTurno() : String
+    activate enf
+    enf --> hosp : turno
+    deactivate enf
+end
+
+hosp --> hosp : escalaGerada
+deactivate hosp
+
+hosp --> adm : relatorioCompleto
+deactivate hosp
+
+@enduml
